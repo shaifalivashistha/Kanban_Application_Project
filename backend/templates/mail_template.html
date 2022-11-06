@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <p>Hi {{data.username}},</p>
+    <p>Thank you for using Self Tracker app. Your data logs from the past month are listed below. Keep logging!!</p>
+    <table style="width: 100%">
+        <thead>
+            <tr>
+                <th>Tracker Name</th>
+                <th>Tracker Description</th>
+                <th>Tracker Type</th>
+                <th>Last Update</th>
+            </tr>
+        </thead>
+
+        <body>
+            {% for element in data.tracker_data %}
+            <tr>
+                <td>{{element.name}}</td>
+                <td>{{element.description}}</td>
+                <td>{{element.type}}</td>
+                <td>{{element.timestamp}}</td>
+            </tr>
+            {% endfor %}
+        </body>
+    </table>
+    <p>Regards</p>
+    <p>Self Tracker Team</p>
+</body>
+
+</html>
