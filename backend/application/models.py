@@ -12,14 +12,14 @@ class User(db.Model, UserMixin):
     active = db.Column(db.Boolean())
     fs_uniquifier = db.Column(db.String(255), unique=True, nullable=False)
     task_list = db.relationship(
-        "Task_List", secondary="UserTaskList", backref="User", cascade="all,delete"
+        "TaskList", secondary="UserTaskList", backref="User", cascade="all,delete"
     )
     roles = db.relationship(
         "Role", secondary="roles_users", backref=db.backref("User", lazy=True)
     )
 
 
-class Task_List(db.Model):
+class TaskList(db.Model):
     __tablename__ = "task_list"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(300), nullable=False)
@@ -42,14 +42,14 @@ class Cards(db.Model):
 
 class UserTaskList(db.Model):
     __tablename__ = "UserTaskList"
-    UserTrackerID = db.Column(db.Integer(), primary_key=True, autoincrement=True)
+    UserTaskListID = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     uID = db.Column(db.Integer(), db.ForeignKey("user.id"))
     tID = db.Column(db.Integer(), db.ForeignKey("task_list.id"))
 
 
 class List_Cards(db.Model):
     __tablename__ = "List_Cards"
-    TrackerLogID = db.Column(db.Integer(), primary_key=True, autoincrement=True)
+    List_CardsID = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     tID = db.Column(db.Integer(), db.ForeignKey("task_list.id"))
     lID = db.Column(db.Integer(), db.ForeignKey("cards.id"))
 

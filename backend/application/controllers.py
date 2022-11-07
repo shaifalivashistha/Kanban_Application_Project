@@ -9,9 +9,8 @@ from flask import (
     jsonify,
 )
 
-from .api import *
 from .models import *
-from .task import *
+from .tasks import *
 from .security import *
 from .database import *
 from .cache import cache
@@ -163,7 +162,7 @@ def create_tracker(username):
             data["tracker_type"],
         )
 
-        new_tracker = Tracker(
+        new_tracker = TaskList(
             name=trackerName, description=trackerDescription, type=trackerType
         )
 
@@ -191,7 +190,7 @@ def create_tracker(username):
 @app.route("/<string:username>/<int:trackerID>/update", methods=["POST"])
 def update(username, trackerID):
     cache.delete_memoized(dashboard, username)
-    tracker = Tracker.query.filter_by(id=trackerID).first()
+    tracker = TaskList.query.filter_by(id=trackerID).first()
     data = request.get_json()
     if tracker:
         tracker.name, tracker.description = data["tracker_name"], data["tracker_des"]
@@ -205,7 +204,7 @@ def update(username, trackerID):
 @app.route("/<string:username>/<int:trackerID>/logs", methods=["GET"])
 @cache.memoize()
 def log(username, trackerID):
-    parent_tracker = Tracker.query.filter_by(id=trackerID).first()
+    parent_tracker = TaskList.query.filter_by(id=trackerID).first()
     if request.method == "GET":
         time.sleep(1)
         all_logs = parent_tracker.logs
@@ -248,11 +247,11 @@ def log(username, trackerID):
 @app.route("/<string:username>/<int:trackerID>/bounce_log_cache", methods=["POST"])
 def bounce_log_cache(username, trackerID):
     cache.delete_memoized(log, username, trackerID)
-    parent_tracker = Tracker.query.filter_by(id=trackerID).first()
+    parent_tracker = TaskList.query.filter_by(id=trackerID).first()
     img_pth = f"../frontend/myapp/src/assets/{username}/{trackerID}.png"
     data = request.get_json()
 
-    new_log = Logs(
+    new_log = Cards(
         value=data["log_value"], note=data["log_note"], log=parent_tracker.type
     )
     parent_tracker.logs.append(new_log)
@@ -291,7 +290,7 @@ def bounce_log_cache(username, trackerID):
 @app.route("/<string:username>/<int:trackerID>/delete", methods=["GET"])
 def delete(username, trackerID):
     cache.delete_memoized(dashboard, username)
-    targetTracker = Tracker.query.get_or_404(trackerID)
+    targetTracker = TaskList.query.get_or_404(trackerID)
     try:
         db.session.delete(targetTracker)
         db.session.commit()
@@ -312,7 +311,7 @@ def delete(username, trackerID):
 @app.route("/<string:username>/<int:trackerID>/<int:logID>/delete", methods=["GET"])
 def delete_log(username, trackerID, logID):
     cache.delete_memoized(log, username, trackerID)
-    myLog = Logs.query.get_or_404(logID)
+    myLog = Cards.query.get_or_404(logID)
     try:
         db.session.delete(myLog)
         db.session.commit()
@@ -332,7 +331,7 @@ def delete_log(username, trackerID, logID):
 @app.route("/<string:username>/<int:trackerID>/<int:logID>/update", methods=["POST"])
 def update_log(username, trackerID, logID):
     cache.delete_memoized(log, username, trackerID)
-    myLog = Logs.query.filter_by(id=logID).first()
+    myLog = Cards.query.filter_by(id=logID).first()
     data = request.get_json()
     if myLog:
         myLog.value, myLog.note = data["log_value"], data["log_note"]
