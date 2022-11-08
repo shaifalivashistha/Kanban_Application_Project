@@ -1,5 +1,12 @@
 <template>
-  <div id="home"></div>
+  <div id="home">
+    <p>
+      <router-link to="/login"><button>Login</button></router-link>
+    </p>
+    <p>
+      <router-link to="/register"><button>Sign Up</button></router-link>
+    </p>
+  </div>
 </template>
 
 <script>

@@ -50,7 +50,7 @@
             />
           </div>
           <button id="" class="btn btn-dark btn-lg btn-block">Sign Up</button>
-          <p>Existing User? <router-link to="/register">Login</router-link></p>
+          <p>Existing User? <router-link to="/login">Login</router-link></p>
         </form>
       </body>
     </body>
