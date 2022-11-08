@@ -5,7 +5,6 @@ from flask_cors import CORS
 from flask_restful import Api
 from flask_security import Security
 
-from application.api import *
 from application import workers
 from application.models import *
 from application.security import *
@@ -59,8 +58,6 @@ def create_app():
 app, api, celery = create_app()
 
 from application.controllers import *
-
-from application.api import *
 
 
 # # -------------------------API_ROUTES-------------------------#
