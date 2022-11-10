@@ -30,18 +30,19 @@
 
             <router-link :to="`/dashboard/create_list`">
                 <button style="
-                        border-radius: 50%;
-                        font-size: 20px;
-                        background-color: #4681f4;
-                        margin: 4px 2px;
-                        padding: 15px;
-                        color: white;
-                        ">+</button>
+                    border-radius: 50%;
+                    font-size: 20px;
+                    background-color: #4681f4;
+                    margin: 4px 2px;
+                    padding: 15px;
+                    color: white;
+                ">+</button>
             </router-link>
         </div>
         <br />
         <div>
             <h1>||------Task Board------||</h1>
+
             <div style="display: flex; flex-direction: column; text-align: center; width: 100%;">
                 <div style=" display: flex; flex-direction: row;">
                     <div style="border: solid 1px orange; flex-grow: 1;">
@@ -64,9 +65,9 @@
                                 Box 7
                             </div>
                         </div>
-                        <p> <button
+                        <router-link :to="`/dashboard/create_card`"> <button
                                 style="border-radius: 50%; font-size: 20px; background-color: #4681f4; margin: 4px 2px; padding: 10px; color: white;">+</button>
-                        </p>
+                        </router-link>
                     </div>
                     <div style="border: solid 1px orange; flex-grow: 1;">
                         <div class="dropdown">
@@ -88,9 +89,9 @@
                                 Box 7
                             </div>
                         </div>
-                        <p> <button
+                        <router-link :to="`/dashboard/create_card`"> <button
                                 style="border-radius: 50%; font-size: 20px; background-color: #4681f4; margin: 4px 2px; padding: 10px; color: white;">+</button>
-                        </p>
+                        </router-link>
                     </div>
                     <div style="border: solid 1px orange; flex-grow: 1;">
                         <div class="dropdown">
@@ -112,9 +113,9 @@
                                 Box 7
                             </div>
                         </div>
-                        <p> <button
+                        <router-link :to="`/dashboard/create_card`"> <button
                                 style="border-radius: 50%; font-size: 20px; background-color: #4681f4; margin: 4px 2px; padding: 10px; color: white;">+</button>
-                        </p>
+                        </router-link>
                     </div>
                     <div style="border: solid 1px orange; flex-grow: 1;">
                         <div class="dropdown">
@@ -136,9 +137,9 @@
                                 Box 7
                             </div>
                         </div>
-                        <p> <button
+                        <router-link :to="`/dashboard/create_card`"> <button
                                 style="border-radius: 50%; font-size: 20px; background-color: #4681f4; margin: 4px 2px; padding: 10px; color: white;">+</button>
-                        </p>
+                        </router-link>
                     </div>
                     <div style="border: solid 1px orange; flex-grow: 1;">
                         <div class="dropdown">
@@ -162,9 +163,9 @@
                                 </div>
                             </div>
                         </div>
-                        <p> <button
+                        <router-link :to="`/dashboard/create_card`"> <button
                                 style="border-radius: 50%; font-size: 20px; background-color: #4681f4; margin: 4px 2px; padding: 10px; color: white;">+</button>
-                        </p>
+                        </router-link>
 
                     </div>
                 </div>
@@ -446,7 +447,7 @@ nav {
     background-color: #008a57;
     color: white;
     padding: 10px;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .dropdown {
@@ -457,8 +458,8 @@ nav {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
+    background-color: #ffffff;
+    min-width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -471,7 +472,7 @@ nav {
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: rgb(117, 204, 255);
 }
 
 .dropdown:hover .dropdown-content {

@@ -5,6 +5,7 @@ import LoginView from "../views/LoginView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import DashboardView from "../views/DashboardView.vue";
 import createTaskView from "../views/createTaskView.vue";
+import createCardView from "../views/createCardView.vue"
 
 Vue.use(VueRouter);
 
@@ -42,6 +43,11 @@ const routes = [
     path: "/dashboard/create_list",
     name: "create_list",
     component: createTaskView,
+  },
+  {
+    path: "/dashboard/create_card",
+    name: "create_card",
+    component: createCardView,
   },
 ];
 
