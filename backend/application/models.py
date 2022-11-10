@@ -24,7 +24,6 @@ class TaskList(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(300), nullable=False)
     description = db.Column(db.String(300), nullable=False)
-    type = db.Column(db.String(10), nullable=False)
     date_created = db.Column(db.DateTime(timezone=True), default=datetime.now)
     cards = db.relationship(
         "Cards", secondary="List_Cards", backref="task_list", cascade="all,delete"
@@ -34,10 +33,11 @@ class TaskList(db.Model):
 class Cards(db.Model):
     __tablename__ = "cards"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    timestamp = db.Column(db.DateTime(timezone=True), default=datetime.now)
-    card = db.Column(db.String(300))
-    task = db.Column(db.Integer, nullable=False)
-    note = db.Column(db.String(300), nullable=True)
+    ListName = db.Column(db.Integer, nullable=False)
+    Title = db.Column(db.String(300))
+    content = db.Column(db.String(300))
+    deadline = db.Column(db.DateTime(300), nullable=True)
+    status = db.Column(db.String(300))
 
 
 class UserTaskList(db.Model):

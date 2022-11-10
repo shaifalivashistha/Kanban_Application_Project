@@ -16,7 +16,5 @@ export default {
 };
 </script>
 <style>
-h1 {
-  background-color: darksalmon;
-}
+
 </style>

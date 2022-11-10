@@ -119,22 +119,21 @@ def login():
 def dashboard(username):
     time.sleep(1)
     user_data = User.query.filter_by(username=username).first()
-    trackerObjs = user_data.trackers
+    taskObjs = user_data.task_list
 
-    tracker_list = []
-    for trackerObj in trackerObjs:
-        tracker_list.append(trackerObj)
+    task_list = []
+    for taskObj in taskObjs:
+        task_list.append(taskObj)
 
-    tracker_dict = {}
-    for idx, tracker in enumerate(tracker_list):
-        tracker_dict[idx] = {
-            "id": tracker.id,
-            "name": tracker.name,
-            "description": tracker.description,
-            "type": tracker.type,
-            "date_created": tracker.date_created,
+    task_dict = {}
+    for idx, task in enumerate(task_list):
+        task_dict[idx] = {
+            "id": task.id,
+            "name": task.name,
+            "description": task.description,
+            "date_created": task.date_created,
         }
-    return jsonify({"resp": "ok", "msg": "Trackers parsed", "stuff": tracker_dict})
+    return jsonify({"resp": "ok", "msg": "Tasks parsed", "stuff": task_dict})
 
 
 # -------------------------LOGOUT-------------------------#
@@ -147,33 +146,33 @@ def logout():
     return jsonify({"resp": "ok", "msg": "Logged out"})
 
 
-# -------------------------CREATE_TRACKER-------------------------#
+# -------------------------CREATE_TASKLIST-------------------------#
 
 
-@app.route("/dashboard/<string:username>/create_tracker", methods=["POST", "GET"])
-def create_tracker(username):
+@app.route("/dashboard/<string:username>/create_list", methods=["POST", "GET"])
+def create_list(username):
     cache.delete_memoized(dashboard, username)
     if request.method == "POST":
         data = request.get_json()
 
-        trackerName, trackerDescription, trackerType = (
+        TaskListName, TaskListDescription = (
             data["tracker_name"],
             data["tracker_des"],
             data["tracker_type"],
         )
 
-        new_tracker = TaskList(
-            name=trackerName, description=trackerDescription, type=trackerType
+        newTaskList = TaskList(
+            name=TaskListName, description=TaskListDescription
         )
 
         user = User.query.filter_by(username=username).first()
-        user.trackers.append(new_tracker)
-        db.session.add(new_tracker)
+        user.task_list.append(newTaskList)
+        db.session.add(newTaskList)
         db.session.commit()
         fig = Figure()
         axis = fig.add_subplot(1, 1, 1)
         axis.set(xlabel="Time Stamp", ylabel="Value")
-        fig.savefig(f"../frontend/myapp/src/assets/{username}/{new_tracker.id}.png")
+        fig.savefig(f"../frontend/myapp/src/assets/{username}/{newTaskList.id}.png")
         return jsonify({"resp": "ok", "msg": "tracker successfully created"})
     else:
         return jsonify(
