@@ -115,9 +115,10 @@ def login():
 
 
 @app.route("/dashboard/<string:username>", methods=["GET"])
-@cache.memoize()
+# @cache.memoize()
 def dashboard(username):
     time.sleep(1)
+    print("request reached at backend")
     user_data = User.query.filter_by(username=username).first()
     taskObjs = user_data.task_list
 
@@ -127,11 +128,13 @@ def dashboard(username):
 
     task_dict = {}
     for idx, task in enumerate(task_list):
+        print(task.cards)
         task_dict[idx] = {
             "id": task.id,
             "name": task.name,
             "description": task.description,
             "date_created": task.date_created,
+            "task_cards" : task.cards
         }
     return jsonify({"resp": "ok", "msg": "Tasks parsed", "stuff": task_dict})
 
@@ -142,7 +145,7 @@ def dashboard(username):
 @app.route("/logout_page", methods=["GET"])
 def logout():
     session.clear()
-    cache.clear()
+    # cache.clear()
     return jsonify({"resp": "ok", "msg": "Logged out"})
 
 
@@ -151,14 +154,13 @@ def logout():
 
 @app.route("/dashboard/<string:username>/create_list", methods=["POST", "GET"])
 def create_list(username):
-    cache.delete_memoized(dashboard, username)
+    # cache.delete_memoized(dashboard, username)
     if request.method == "POST":
         data = request.get_json()
 
         TaskListName, TaskListDescription = (
             data["tracker_name"],
             data["tracker_des"],
-            data["tracker_type"],
         )
 
         newTaskList = TaskList(
@@ -200,7 +202,7 @@ def update(username, trackerID):
 # -------------------------CREATE_LOGS-------------------------#
 
 
-@app.route("/<string:username>/<int:trackerID>/logs", methods=["GET"])
+@app.route("/<string:username>/<int:task_listID>/create_card", methods=["GET"])
 @cache.memoize()
 def log(username, trackerID):
     parent_tracker = TaskList.query.filter_by(id=trackerID).first()

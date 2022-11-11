@@ -47,5 +47,5 @@ def trigerred_summary_export(username):
 
 
 @celery.task()
-def trigerred_events_export(username, trackerID):
-    async_events_export(username, trackerID)
+def trigerred_events_export(username, listID):
+    async_events_export(username, listID)

@@ -10,36 +10,35 @@ from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-from weasyprint import HTML
+# from weasyprint import HTML
 from flask import current_app as app
 
-from .models import Logs, TrackerLog, User, Tracker, UserTracker
+from .models import *
 
 
 def export():
     fname = f"ExportedSummary_{str(date.today())}.csv"
     user_list = User.query.all()
-    tracker_header = ["Name", "Date Created", "Description", "Type"]
+    list_header = ["Name", "Date Created", "Description"]
     for user in user_list:
         usr_pth = f"/home/shaifali/Downloads/Mad2_Data/{user.username}"
         if not os.path.exists(usr_pth):
             os.makedirs(usr_pth)
         tIDs = (
-            UserTracker.query.with_entities(UserTracker.tID)
-            .filter(UserTracker.uID == user.id)
+            UserTaskList.query.with_entities(UserTaskList.tID)
+            .filter(UserTaskList.uID == user.id)
             .all()
         )
         with open(f"{usr_pth}/{fname}", "w") as file:
             myWriter = csv.writer(file)
-            myWriter.writerow(tracker_header)
+            myWriter.writerow(list_header)
             for tid in tIDs:
-                tracker = Tracker.query.filter_by(id=tid[0]).first()
+                task_lists = TaskList.query.filter_by(id=tid[0]).first()
                 myWriter.writerow(
                     [
-                        tracker.name,
-                        tracker.date_created,
-                        tracker.description,
-                        tracker.type,
+                        task_lists.name,
+                        task_lists.date_created,
+                        task_lists.description,
                     ]
                 )
         file.close()
@@ -89,26 +88,25 @@ def send():
     for user in user_list:
         attachement_pth = f"/home/shaifali/Downloads/Mad2_Data/{user.username}/ExportedSummary_{str(date.today())}.pdf"
         tIDs = (
-            UserTracker.query.with_entities(UserTracker.tID)
-            .filter(UserTracker.uID == user.id)
+            UserTaskList.query.with_entities(UserTaskList.tID)
+            .filter(UserTaskList.uID == user.id)
             .all()
         )
 
-        tracker_data = []
+        task_list_data = []
         for tid in tIDs:
-            tracker = Tracker.query.filter_by(id=tid[0]).first()
+            task_lists = TaskList.query.filter_by(id=tid[0]).first()
             temp_dict = {
-                "name": tracker.name,
-                "description": tracker.description,
-                "timestamp": tracker.date_created,
-                "type": tracker.type,
+                "name": task_lists.name,
+                "description": task_lists.description,
+                "timestamp": task_lists.date_created,
             }
-            tracker_data.append(temp_dict)
+            task_list_data.append(temp_dict)
 
         send_data = {
             "username": user.username,
             "email": user.email,
-            "tracker_data": tracker_data,
+            "tracker_data": task_list_data,
         }
         msg = format_msg(send_data, "Summary")
         html = HTML(string=msg)
@@ -126,21 +124,21 @@ def remind():
     user_list = User.query.all()
     for user in user_list:
         tIDs = (
-            UserTracker.query.with_entities(UserTracker.tID)
-            .filter(UserTracker.uID == user.id)
+            UserTaskList.query.with_entities(UserTaskList.tID)
+            .filter(UserTaskList.uID == user.id)
             .all()
         )
         flag = True
         for tid in tIDs:
-            lIDs = (
-                TrackerLog.query.with_entities(TrackerLog.lID)
-                .filter(TrackerLog.tID == tid[0])
+            cIDs = (
+                ListCards.query.with_entities(ListCards.cID)
+                .filter(ListCards.tID == tid[0])
                 .all()
             )
-            for lid in lIDs:
-                mylog = Logs.query.filter_by(id=lid[0]).first()
-                lDate = mylog.timestamp.date()
-                if lDate == today:
+            for cid in cIDs:
+                mylog = Cards.query.filter_by(id=cid[0]).first()
+                cDate = mylog.timestamp.date()
+                if cDate == today:
                     flag = False
                     break
         if flag:
@@ -161,48 +159,47 @@ def async_summary_export(username):
     if not os.path.exists(usr_pth):
         os.makedirs(usr_pth)
     tIDs = (
-        UserTracker.query.with_entities(UserTracker.tID)
-        .filter(UserTracker.uID == user.id)
+        UserTaskList.query.with_entities(UserTaskList.tID)
+        .filter(UserTaskList.uID == user.id)
         .all()
     )
     with open(f"{usr_pth}/{fname}", "w") as file:
         myWriter = csv.writer(file)
         myWriter.writerow(tracker_header)
         for tid in tIDs:
-            tracker = Tracker.query.filter_by(id=tid[0]).first()
+            task_list = TaskList.query.filter_by(id=tid[0]).first()
             myWriter.writerow(
                 [
-                    tracker.name,
-                    tracker.date_created,
-                    tracker.description,
-                    tracker.type,
+                    task_list.name,
+                    task_list.date_created,
+                    task_list.description,
                 ]
             )
     file.close()
 
 
-def async_events_export(username, trackerID):
+def async_events_export(username, listID):
     fname = f"Logs.csv"
     log_header = ["Log", "TimeStamp", "Value", "Note"]
-    dir_pth = f"/home/shaifali/Downloads/Mad2_Data/{username}/{trackerID}"
+    dir_pth = f"/home/shaifali/Downloads/Mad2_Data/{username}/{listID}"
     if not os.path.exists(dir_pth):
         os.makedirs(dir_pth)
-    lIDs = (
-        TrackerLog.query.with_entities(TrackerLog.lID)
-        .filter(TrackerLog.tID == trackerID)
+    cIDs = (
+        ListCards.query.with_entities(ListCards.cID)
+        .filter(ListCards.tID == listID)
         .all()
     )
     with open(f"{dir_pth}/{fname}", "w") as file:
         myWriter = csv.writer(file)
         myWriter.writerow(log_header)
-        for lid in lIDs:
-            log = Logs.query.filter_by(id=lid[0]).first()
+        for cid in cIDs:
+            card = Cards.query.filter_by(id=cid[0]).first()
             myWriter.writerow(
                 [
-                    log.log,
-                    log.timestamp,
-                    log.value,
-                    log.note,
+                    card.title,
+                    card.content,
+                    card.deadline,
+                    card.status,
                 ]
             )
     file.close()

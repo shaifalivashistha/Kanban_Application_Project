@@ -25,7 +25,7 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
-    path: "/login",
+    path: "/login_page",
     name: "login",
     component: LoginView,
   },
@@ -35,12 +35,12 @@ const routes = [
     component: RegisterView,
   },
   {
-    path: "/dashboard",
+    path: "/dashboard/:username",
     name: "dashboard",
     component: DashboardView,
   },
   {
-    path: "/dashboard/create_list",
+    path: "/dashboard/:username/create_list",
     name: "create_list",
     component: createTaskView,
   },

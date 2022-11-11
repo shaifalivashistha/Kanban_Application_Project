@@ -47,11 +47,11 @@ class UserTaskList(db.Model):
     tID = db.Column(db.Integer(), db.ForeignKey("task_list.id"))
 
 
-class List_Cards(db.Model):
+class ListCards(db.Model):
     __tablename__ = "List_Cards"
     List_CardsID = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     tID = db.Column(db.Integer(), db.ForeignKey("task_list.id"))
-    lID = db.Column(db.Integer(), db.ForeignKey("cards.id"))
+    cID = db.Column(db.Integer(), db.ForeignKey("cards.id"))
 
 
 class Role(db.Model, RoleMixin):

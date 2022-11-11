@@ -1,0 +1,552 @@
+2022-11-10 23:24:26,845 INFO main MainThread : App setup complete
+2022-11-10 23:24:26,847 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-10 23:24:26,848 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-10 23:24:26,850 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-10 23:24:26,850 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-10 23:24:26,851 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-10 23:24:26,851 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-10 23:24:26,851 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-10 23:24:26,853 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-10 23:27:57,892 INFO main MainThread : App setup complete
+2022-11-10 23:27:57,893 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-10 23:27:57,894 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-10 23:27:57,896 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-10 23:27:57,896 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-10 23:27:57,896 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-10 23:27:57,896 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-10 23:27:57,896 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-10 23:27:57,897 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 01:24:34,296 INFO main MainThread : App setup complete
+2022-11-11 01:24:34,298 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 01:24:34,299 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 01:24:34,300 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 01:24:34,300 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 01:24:34,300 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 01:24:34,300 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 01:24:34,301 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 01:24:34,302 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 01:24:55,333 INFO main MainThread : App setup complete
+2022-11-11 01:24:55,335 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 01:24:55,335 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 01:24:55,337 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 01:24:55,337 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 01:24:55,337 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 01:24:55,337 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 01:24:55,337 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 01:24:55,338 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 01:24:55,578 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 01:24:55,582 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 01:24:55,583 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 01:24:55,583 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 01:24:55,598 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 01:24:55,598 DEBUG matplotlib.font_manager MainThread : font search path [PosixPath('/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf'), PosixPath('/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/afm'), PosixPath('/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/pdfcorefonts')]
+2022-11-11 01:24:56,393 INFO matplotlib.font_manager MainThread : Failed to extract font properties from /usr/share/fonts/truetype/noto/NotoColorEmoji.ttf: In FT2Font: Can not load face (unknown file format; error code 0x2)
+2022-11-11 01:24:56,570 INFO matplotlib.font_manager MainThread : generated new fontManager
+2022-11-11 01:24:56,766 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-11-11 01:24:56,766 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-11-11 01:24:56,768 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 01:24:57,245 INFO main MainThread : App setup complete
+2022-11-11 01:24:57,247 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 01:24:57,248 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 01:24:57,250 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 01:24:57,250 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 01:24:57,250 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 01:24:57,250 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 01:24:57,251 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 01:24:57,252 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 01:24:57,385 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 01:24:57,388 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 01:24:57,388 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 01:24:57,389 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 01:24:57,421 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 01:24:57,432 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 01:24:57,576 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 01:24:57,576 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 01:25:43,702 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 01:25:43] "OPTIONS /register HTTP/1.1" 200 -
+2022-11-11 01:25:43,735 DEBUG passlib.handlers.bcrypt Thread-3 (process_request_thread) : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-11-11 01:25:43,738 DEBUG passlib.handlers.bcrypt Thread-3 (process_request_thread) : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-11-11 01:25:44,003 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 01:25:44] "POST /register HTTP/1.1" 200 -
+2022-11-11 01:55:50,870 INFO main MainThread : App setup complete
+2022-11-11 01:55:50,872 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 01:55:50,874 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 01:55:50,876 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 01:55:50,876 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 01:55:50,876 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 01:55:50,876 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 01:55:50,877 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 01:55:50,879 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 01:55:51,160 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 01:55:51,163 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 01:55:51,164 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 01:55:51,164 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 01:55:51,185 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 01:55:51,195 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 01:55:51,368 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-11-11 01:55:51,368 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-11-11 01:55:51,369 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 01:55:51,803 INFO main MainThread : App setup complete
+2022-11-11 01:55:51,805 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 01:55:51,806 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 01:55:51,807 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 01:55:51,807 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 01:55:51,807 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 01:55:51,808 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 01:55:51,808 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 01:55:51,809 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 01:55:51,919 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 01:55:51,924 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 01:55:51,925 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 01:55:51,925 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 01:55:51,946 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 01:55:51,948 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 01:55:52,081 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 01:55:52,082 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 02:04:53,704 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/send_mail.py', reloading
+2022-11-11 02:04:53,941 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 02:04:54,357 INFO main MainThread : App setup complete
+2022-11-11 02:04:54,358 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 02:04:54,359 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 02:04:54,361 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 02:04:54,361 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 02:04:54,362 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 02:04:54,362 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 02:04:54,362 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 02:04:54,363 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 02:04:54,550 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 02:04:54,552 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 02:04:54,553 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 02:04:54,553 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 02:04:54,563 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 02:04:54,565 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 02:04:54,694 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 02:04:54,694 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 02:05:30,966 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/tasks.py', reloading
+2022-11-11 02:05:31,211 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 02:05:31,677 INFO main MainThread : App setup complete
+2022-11-11 02:05:31,679 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 02:05:31,680 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 02:05:31,681 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 02:05:31,682 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 02:05:31,682 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 02:05:31,682 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 02:05:31,682 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 02:05:31,683 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 02:05:31,814 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 02:05:31,819 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 02:05:31,820 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 02:05:31,820 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 02:05:31,832 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 02:05:31,835 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 02:05:32,011 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 02:05:32,011 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 02:06:05,199 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/models.py', reloading
+2022-11-11 02:06:05,450 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 02:06:05,818 INFO main MainThread : App setup complete
+2022-11-11 02:06:05,819 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 02:06:05,820 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 02:06:05,822 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 02:06:05,822 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 02:06:05,822 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 02:06:05,822 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 02:06:05,822 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 02:06:05,823 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 02:06:05,934 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 02:06:05,936 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 02:06:05,937 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 02:06:05,937 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 02:06:05,948 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 02:06:05,949 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 02:06:06,071 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 02:06:06,072 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 02:10:26,901 INFO main MainThread : App setup complete
+2022-11-11 02:10:26,903 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 02:10:26,904 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 02:10:26,905 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 02:10:26,905 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 02:10:26,906 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 02:10:26,906 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 02:10:26,906 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 02:10:26,907 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 02:10:27,050 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 02:10:27,052 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 02:10:27,053 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 02:10:27,053 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 02:10:27,067 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 02:10:27,069 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 02:10:27,213 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-11-11 02:10:27,213 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-11-11 02:10:27,216 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 02:10:27,607 INFO main MainThread : App setup complete
+2022-11-11 02:10:27,609 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 02:10:27,610 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 02:10:27,612 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 02:10:27,612 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 02:10:27,612 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 02:10:27,612 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 02:10:27,612 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 02:10:27,613 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 02:10:27,726 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 02:10:27,728 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 02:10:27,729 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 02:10:27,729 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 02:10:27,748 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 02:10:27,754 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 02:10:27,888 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 02:10:27,888 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 02:11:04,837 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 02:11:04] "OPTIONS /register HTTP/1.1" 200 -
+2022-11-11 02:11:04,884 DEBUG passlib.handlers.bcrypt Thread-3 (process_request_thread) : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-11-11 02:11:04,893 DEBUG passlib.handlers.bcrypt Thread-3 (process_request_thread) : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-11-11 02:11:05,153 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 02:11:05] "POST /register HTTP/1.1" 200 -
+2022-11-11 02:11:28,185 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 02:11:28] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-11-11 02:11:30,932 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 02:11:30] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-11-11 02:11:30,940 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 02:11:30] "OPTIONS /login_page HTTP/1.1" 200 -
+2022-11-11 02:11:31,167 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 02:11:31] "POST /login_page HTTP/1.1" 200 -
+2022-11-11 12:55:06,500 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 12:55:06] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 12:55:06,589 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 12:55:06] "[35m[1mGET /dashboard/test%20user HTTP/1.1[0m" 500 -
+2022-11-11 14:54:41,073 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/controllers.py', reloading
+2022-11-11 14:54:41,528 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 14:54:42,176 INFO main MainThread : App setup complete
+2022-11-11 14:54:42,179 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 14:54:42,181 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 14:54:42,183 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 14:54:42,183 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 14:54:42,184 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 14:54:42,184 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 14:54:42,185 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 14:54:42,186 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 14:54:42,467 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 14:54:42,471 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 14:54:42,472 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 14:54:42,473 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 14:54:42,488 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 14:54:42,492 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 14:54:42,650 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 14:54:42,651 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 16:44:05,467 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 16:44:05] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 16:44:05,544 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 16:44:05] "[35m[1mGET /dashboard/test%20user HTTP/1.1[0m" 500 -
+2022-11-11 17:47:20,240 INFO main MainThread : App setup complete
+2022-11-11 17:47:20,242 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 17:47:20,243 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 17:47:20,244 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 17:47:20,244 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 17:47:20,245 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 17:47:20,245 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 17:47:20,245 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 17:47:20,246 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 17:47:20,378 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 17:47:20,381 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 17:47:20,381 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 17:47:20,381 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 17:47:20,394 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 17:47:20,396 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 17:47:20,547 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-11-11 17:47:20,547 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-11-11 17:47:20,548 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 17:47:20,968 INFO main MainThread : App setup complete
+2022-11-11 17:47:20,969 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 17:47:20,970 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 17:47:20,972 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 17:47:20,972 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 17:47:20,972 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 17:47:20,972 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 17:47:20,973 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 17:47:20,973 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 17:47:21,098 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 17:47:21,101 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 17:47:21,101 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 17:47:21,101 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 17:47:21,112 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 17:47:21,114 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 17:47:21,232 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 17:47:21,232 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 17:48:16,022 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:48:16] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-11-11 17:48:16,365 DEBUG passlib.handlers.bcrypt Thread-3 (process_request_thread) : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-11-11 17:48:16,372 DEBUG passlib.handlers.bcrypt Thread-3 (process_request_thread) : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-11-11 17:48:16,621 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:48:16] "[31m[1mPOST /login?include_auth_token HTTP/1.1[0m" 400 -
+2022-11-11 17:48:33,734 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:48:33] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-11-11 17:48:35,061 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:48:35] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-11-11 17:48:35,066 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:48:35] "OPTIONS /login_page HTTP/1.1" 200 -
+2022-11-11 17:48:35,293 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:48:35] "POST /login_page HTTP/1.1" 200 -
+2022-11-11 17:48:35,316 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:48:35] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 17:48:36,342 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:48:36] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 17:49:11,949 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/controllers.py', reloading
+2022-11-11 17:49:12,214 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 17:49:12,584 INFO main MainThread : App setup complete
+2022-11-11 17:49:12,586 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 17:49:12,588 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 17:49:12,590 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 17:49:12,590 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 17:49:12,590 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 17:49:12,590 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 17:49:12,591 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 17:49:12,592 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 17:49:12,717 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 17:49:12,719 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 17:49:12,720 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 17:49:12,720 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 17:49:12,731 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 17:49:12,733 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 17:49:12,878 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 17:49:12,878 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 17:49:14,644 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:49:14] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 17:49:15,674 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:49:15] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 17:59:20,609 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/controllers.py', reloading
+2022-11-11 17:59:20,941 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 17:59:21,346 INFO main MainThread : App setup complete
+2022-11-11 17:59:21,348 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 17:59:21,349 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 17:59:21,351 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 17:59:21,351 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 17:59:21,351 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 17:59:21,352 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 17:59:21,352 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 17:59:21,353 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 17:59:21,494 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 17:59:21,496 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 17:59:21,497 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 17:59:21,497 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 17:59:21,508 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 17:59:21,510 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 17:59:21,658 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 17:59:21,659 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 17:59:24,380 INFO main MainThread : App setup complete
+2022-11-11 17:59:24,382 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 17:59:24,383 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 17:59:24,385 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 17:59:24,385 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 17:59:24,386 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 17:59:24,386 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 17:59:24,386 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 17:59:24,388 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 17:59:24,496 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 17:59:24,499 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 17:59:24,499 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 17:59:24,499 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 17:59:24,510 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 17:59:24,513 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 17:59:24,643 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-11-11 17:59:24,643 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-11-11 17:59:24,643 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 17:59:24,969 INFO main MainThread : App setup complete
+2022-11-11 17:59:24,971 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 17:59:24,971 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 17:59:24,973 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 17:59:24,973 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 17:59:24,973 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 17:59:24,973 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 17:59:24,973 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 17:59:24,974 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 17:59:25,072 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 17:59:25,076 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 17:59:25,077 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 17:59:25,077 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 17:59:25,087 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 17:59:25,089 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 17:59:25,225 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 17:59:25,225 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 17:59:29,060 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:59:29] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 17:59:30,089 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 17:59:30] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:00:03,379 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/controllers.py', reloading
+2022-11-11 18:00:03,591 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 18:00:03,949 INFO main MainThread : App setup complete
+2022-11-11 18:00:03,951 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 18:00:03,952 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 18:00:03,953 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 18:00:03,953 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 18:00:03,953 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 18:00:03,953 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 18:00:03,954 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 18:00:03,954 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 18:00:04,055 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 18:00:04,057 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 18:00:04,058 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 18:00:04,058 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 18:00:04,068 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 18:00:04,070 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 18:00:04,205 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 18:00:04,206 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 18:08:42,135 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:08:42] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:08:43,183 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:08:43] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:12:29,009 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:12:29] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:12:30,030 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:12:30] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:15:13,220 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:15:13] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:15:14,236 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:15:14] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:16:00,841 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:16:00] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:16:01,858 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:16:01] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:16:21,804 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/models.py', reloading
+2022-11-11 18:16:22,055 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 18:16:22,465 INFO main MainThread : App setup complete
+2022-11-11 18:16:22,466 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 18:16:22,467 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 18:16:22,469 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 18:16:22,469 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 18:16:22,469 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 18:16:22,469 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 18:16:22,470 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 18:16:22,471 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 18:16:22,576 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 18:16:22,580 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 18:16:22,580 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 18:16:22,581 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 18:16:22,594 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 18:16:22,596 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 18:16:22,727 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 18:16:22,727 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 18:16:23,732 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/controllers.py', reloading
+2022-11-11 18:16:23,865 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 18:16:24,159 INFO main MainThread : App setup complete
+2022-11-11 18:16:24,161 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 18:16:24,162 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 18:16:24,164 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 18:16:24,164 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 18:16:24,164 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 18:16:24,164 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 18:16:24,164 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 18:16:24,165 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 18:16:24,282 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 18:16:24,284 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 18:16:24,284 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 18:16:24,285 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 18:16:24,294 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 18:16:24,296 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 18:16:24,420 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 18:16:24,420 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 18:21:59,768 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:21:59] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:22:00,797 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:22:00] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:22:03,578 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:22:03] "OPTIONS /logout HTTP/1.1" 200 -
+2022-11-11 18:22:03,592 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:22:03] "[32mGET /logout HTTP/1.1[0m" 302 -
+2022-11-11 18:22:03,598 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:22:03] "OPTIONS / HTTP/1.1" 200 -
+2022-11-11 18:22:03,602 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:22:03] "GET / HTTP/1.1" 200 -
+2022-11-11 18:22:03,611 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:22:03] "OPTIONS /logout_page HTTP/1.1" 200 -
+2022-11-11 18:22:03,631 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:22:03] "[35m[1mGET /logout_page HTTP/1.1[0m" 500 -
+2022-11-11 18:22:15,100 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:22:15] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:22:16,138 INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:22:16] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:23:11,272 INFO werkzeug MainThread :  * Detected change in '/home/shaifali/Desktop/Kanban_Application_Project/backend/application/controllers.py', reloading
+2022-11-11 18:23:11,470 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 18:23:11,821 INFO main MainThread : App setup complete
+2022-11-11 18:23:11,822 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 18:23:11,823 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 18:23:11,824 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 18:23:11,824 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 18:23:11,824 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 18:23:11,824 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 18:23:11,825 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 18:23:11,826 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 18:23:11,937 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 18:23:11,939 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 18:23:11,939 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 18:23:11,939 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 18:23:11,951 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 18:23:11,953 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 18:23:12,083 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 18:23:12,083 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 18:23:14,305 INFO main MainThread : App setup complete
+2022-11-11 18:23:14,307 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 18:23:14,307 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 18:23:14,309 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 18:23:14,309 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 18:23:14,309 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 18:23:14,309 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 18:23:14,309 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 18:23:14,310 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 18:23:14,415 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 18:23:14,417 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 18:23:14,418 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 18:23:14,418 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 18:23:14,427 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 18:23:14,428 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 18:23:14,557 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2022-11-11 18:23:14,557 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2022-11-11 18:23:14,558 INFO werkzeug MainThread :  * Restarting with stat
+2022-11-11 18:23:14,857 INFO main MainThread : App setup complete
+2022-11-11 18:23:14,858 DEBUG passlib.registry MainThread : registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2022-11-11 18:23:14,859 DEBUG passlib.registry MainThread : registered 'argon2' handler: <class 'passlib.handlers.argon2.argon2'>
+2022-11-11 18:23:14,860 DEBUG passlib.registry MainThread : registered 'des_crypt' handler: <class 'passlib.handlers.des_crypt.des_crypt'>
+2022-11-11 18:23:14,860 DEBUG passlib.registry MainThread : registered 'pbkdf2_sha512' handler: <class 'passlib.handlers.pbkdf2.pbkdf2_sha512'>
+2022-11-11 18:23:14,861 DEBUG passlib.registry MainThread : registered 'sha256_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha256_crypt'>
+2022-11-11 18:23:14,861 DEBUG passlib.registry MainThread : registered 'sha512_crypt' handler: <class 'passlib.handlers.sha2_crypt.sha512_crypt'>
+2022-11-11 18:23:14,861 DEBUG passlib.registry MainThread : registered 'plaintext' handler: <class 'passlib.handlers.misc.plaintext'>
+2022-11-11 18:23:14,862 DEBUG passlib.registry MainThread : registered 'hex_md5' handler: <class 'passlib.handlers.digests.hex_md5'>
+2022-11-11 18:23:14,955 DEBUG matplotlib MainThread : matplotlib data path: /home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/matplotlib/mpl-data
+2022-11-11 18:23:14,958 DEBUG matplotlib MainThread : CONFIGDIR=/home/shaifali/.config/matplotlib
+2022-11-11 18:23:14,958 DEBUG matplotlib MainThread : interactive is False
+2022-11-11 18:23:14,958 DEBUG matplotlib MainThread : platform is linux
+2022-11-11 18:23:14,968 DEBUG matplotlib MainThread : CACHEDIR=/home/shaifali/.cache/matplotlib
+2022-11-11 18:23:14,970 DEBUG matplotlib.font_manager MainThread : Using fontManager instance from /home/shaifali/.cache/matplotlib/fontlist-v330.json
+2022-11-11 18:23:15,097 WARNING werkzeug MainThread :  * Debugger is active!
+2022-11-11 18:23:15,097 INFO werkzeug MainThread :  * Debugger PIN: 375-741-850
+2022-11-11 18:23:50,929 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:23:50] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:23:51,970 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:23:51] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:24:04,218 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:24:04] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:24:05,242 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:24:05] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:25:02,866 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:25:02] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:25:03,883 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:25:03] "GET /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:25:15,603 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:25:15] "OPTIONS /logout HTTP/1.1" 200 -
+2022-11-11 18:25:15,624 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:25:15] "[32mGET /logout HTTP/1.1[0m" 302 -
+2022-11-11 18:25:15,628 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:25:15] "OPTIONS / HTTP/1.1" 200 -
+2022-11-11 18:25:15,631 INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:25:15] "GET / HTTP/1.1" 200 -
+2022-11-11 18:25:15,639 INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:25:15] "OPTIONS /logout_page HTTP/1.1" 200 -
+2022-11-11 18:25:15,641 INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:25:15] "GET /logout_page HTTP/1.1" 200 -
+2022-11-11 18:26:11,316 INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:11] "OPTIONS /logout HTTP/1.1" 200 -
+2022-11-11 18:26:11,323 INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:11] "[32mGET /logout HTTP/1.1[0m" 302 -
+2022-11-11 18:26:11,331 INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:11] "OPTIONS / HTTP/1.1" 200 -
+2022-11-11 18:26:11,332 INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:11] "GET / HTTP/1.1" 200 -
+2022-11-11 18:26:11,340 INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:11] "OPTIONS /logout_page HTTP/1.1" 200 -
+2022-11-11 18:26:11,341 INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:11] "GET /logout_page HTTP/1.1" 200 -
+2022-11-11 18:26:12,572 INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:12] "[32mGET /logout HTTP/1.1[0m" 302 -
+2022-11-11 18:26:12,583 INFO werkzeug Thread-21 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:12] "GET / HTTP/1.1" 200 -
+2022-11-11 18:26:12,596 INFO werkzeug Thread-22 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:12] "GET /logout_page HTTP/1.1" 200 -
+2022-11-11 18:26:22,648 INFO werkzeug Thread-23 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:22] "OPTIONS /login?include_auth_token HTTP/1.1" 200 -
+2022-11-11 18:26:23,148 DEBUG passlib.handlers.bcrypt Thread-24 (process_request_thread) : trapped unexpected response from 'os_crypt' backend: verify('test', b'$2$04$5BJqKfqMQvV7nS.yUguNcuRfMMOXK0xPWavM7pOzjEi5ze5T1k8/S'):
+Traceback (most recent call last):
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 303, in safe_verify
+    return verify(secret, hash)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaifali/miniconda3/envs/appdev/lib/python3.11/site-packages/passlib/handlers/bcrypt.py", line 837, in _calc_checksum
+    raise uh.exc.InternalBackendError(
+passlib.exc.InternalBackendError: crypt.crypt() failed for unknown reason; passlib recommends running `pip install bcrypt` for general bcrypt support.(config=<hash <class 'str'> value omitted>, secret=<hash <class 'bytes'> value omitted>)
+2022-11-11 18:26:23,152 DEBUG passlib.handlers.bcrypt Thread-24 (process_request_thread) : 'os_crypt' backend lacks $2$ support, enabling workaround
+2022-11-11 18:26:23,406 INFO werkzeug Thread-24 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:23] "POST /login?include_auth_token HTTP/1.1" 200 -
+2022-11-11 18:26:23,410 INFO werkzeug Thread-25 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:23] "OPTIONS /login_page HTTP/1.1" 200 -
+2022-11-11 18:26:23,655 INFO werkzeug Thread-26 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:23] "POST /login_page HTTP/1.1" 200 -
+2022-11-11 18:26:23,695 INFO werkzeug Thread-27 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:23] "OPTIONS /dashboard/test%20user HTTP/1.1" 200 -
+2022-11-11 18:26:24,701 INFO werkzeug Thread-28 (process_request_thread) : 127.0.0.1 - - [11/Nov/2022 18:26:24] "GET /dashboard/test%20user HTTP/1.1" 200 -
