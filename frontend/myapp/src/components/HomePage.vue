@@ -10,7 +10,7 @@
     <br>
     <div>
       <h3>
-        <router-link to="/login"><button class="btn btn-primary btn-lg btn-block">Login</button></router-link>
+        <router-link to="/login_page"><button class="btn btn-primary btn-lg btn-block">Login</button></router-link>
       </h3>
       <h3>
         <router-link to="/register"><button class="btn btn-primary btn-lg btn-block">Sign Up</button></router-link>

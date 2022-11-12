@@ -45,7 +45,7 @@ const routes = [
     component: createTaskView,
   },
   {
-    path: "/dashboard/create_card",
+    path: "/:username/:listID/create_card",
     name: "create_card",
     component: createCardView,
   },

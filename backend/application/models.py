@@ -33,11 +33,11 @@ class TaskList(db.Model):
 class Cards(db.Model):
     __tablename__ = "cards"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    ListName = db.Column(db.Integer, nullable=False)
-    Title = db.Column(db.String(300))
-    content = db.Column(db.String(300))
+    listName = db.Column(db.Integer, nullable=False, unique=True)
+    title = db.Column(db.String(300), nullable=False)
+    content = db.Column(db.String(300), nullable=False)
     deadline = db.Column(db.DateTime(300), nullable=True)
-    status = db.Column(db.String(300))
+    status = db.Column(db.String(300), nullable=False)
 
 
 class UserTaskList(db.Model):

@@ -118,25 +118,27 @@ def login():
 # @cache.memoize()
 def dashboard(username):
     time.sleep(1)
-    print("request reached at backend")
     user_data = User.query.filter_by(username=username).first()
     taskObjs = user_data.task_list
 
     task_list = []
     for taskObj in taskObjs:
         task_list.append(taskObj)
-
-    task_dict = {}
+    task_list_dict = {}
     for idx, task in enumerate(task_list):
+        print(task)
         print(task.cards)
-        task_dict[idx] = {
+
+        task_list_dict[idx] = {
             "id": task.id,
             "name": task.name,
             "description": task.description,
             "date_created": task.date_created,
-            "task_cards" : task.cards
+            "task_cards_data" : task.cards
         }
-    return jsonify({"resp": "ok", "msg": "Tasks parsed", "stuff": task_dict})
+
+    
+    return jsonify({"resp": "ok", "msg": "Tasks parsed", "stuff": task_list_dict})
 
 
 # -------------------------LOGOUT-------------------------#
@@ -156,11 +158,12 @@ def logout():
 def create_list(username):
     # cache.delete_memoized(dashboard, username)
     if request.method == "POST":
-        data = request.get_json()
 
+        data = request.get_json()
+        print(data)
         TaskListName, TaskListDescription = (
-            data["tracker_name"],
-            data["tracker_des"],
+            data["list_name"],
+            data["list_des"],
         )
 
         newTaskList = TaskList(
@@ -175,7 +178,7 @@ def create_list(username):
         axis = fig.add_subplot(1, 1, 1)
         axis.set(xlabel="Time Stamp", ylabel="Value")
         fig.savefig(f"../frontend/myapp/src/assets/{username}/{newTaskList.id}.png")
-        return jsonify({"resp": "ok", "msg": "tracker successfully created"})
+        return jsonify({"resp": "ok", "msg": "task list successfully created"})
     else:
         return jsonify(
             {
@@ -185,39 +188,42 @@ def create_list(username):
         )
 
 
-# -------------------------UPDATE_TRACKER-------------------------#
+# -------------------------UPDATE_TASK_LIST-------------------------#
 
 
-@app.route("/<string:username>/<int:trackerID>/update", methods=["POST"])
-def update(username, trackerID):
-    cache.delete_memoized(dashboard, username)
-    tracker = TaskList.query.filter_by(id=trackerID).first()
+@app.route("/<string:username>/<int:listID>/update", methods=["POST"])
+def update(username, listID):
+    # cache.delete_memoized(dashboard, username)
+    task_list = TaskList.query.filter_by(id=listID).first()
     data = request.get_json()
-    if tracker:
-        tracker.name, tracker.description = data["tracker_name"], data["tracker_des"]
+    if task_list:
+        task_list.name, task_list.description = data["list_name"], data["list_des"]
         db.session.commit()
-        return jsonify({"resp": "ok", "msg": "tracker updated successfully"})
+        return jsonify({"resp": "ok", "msg": "List updated successfully"})
 
 
-# -------------------------CREATE_LOGS-------------------------#
+# -------------------------CREATE_CARDS-------------------------#
 
 
-@app.route("/<string:username>/<int:task_listID>/create_card", methods=["GET"])
-@cache.memoize()
-def log(username, trackerID):
-    parent_tracker = TaskList.query.filter_by(id=trackerID).first()
+@app.route("/<string:username>/<int:listID>/create_card", methods=["GET"])
+# @cache.memoize()
+def cards(username, listID):
+    parent_list = TaskList.query.filter_by(id=listID).first()
     if request.method == "GET":
         time.sleep(1)
-        all_logs = parent_tracker.logs
-        img_pth = f"../frontend/myapp/src/assets/{username}/{trackerID}.png"
-        log_list = []
-        for log in all_logs:
-            log_list.append(log)
+        all_cards = parent_list.cards
+        img_pth = f"../frontend/myapp/src/assets/{username}/{listID}.png"
+        card_list = []
+        for card in all_cards:
+            card_list.append(card)
         data = {}
-        if parent_tracker.type == "numeric":
-            data = {x.timestamp: x.value for x in all_logs}
-        else:
-            data = {x.timestamp: 1 if x.value == "Yes" else 0 for x in all_logs}
+
+        taskList = []
+        all_lists = TaskList.query.all()
+        print(all_lists)
+        for task in all_lists:
+            taskList.append(task.name)
+            print(task.name)
         fig = Figure()
         axis = fig.add_subplot(1, 1, 1)
         axis.plot(data.keys(), data.values())
@@ -226,76 +232,81 @@ def log(username, trackerID):
         with open(img_pth, "rb") as image_file:
             encodedImage = str(base64.b64encode(image_file.read()).decode("utf-8"))
 
-        log_dict = {}
-        for idx, log in enumerate(log_list):
-            Dlog = {
-                "log": log.log,
-                "logID": log.id,
-                "value": log.value,
-                "note": log.note,
-                "timestamp": log.timestamp,
+        card_dict = {}
+        for idx, card in enumerate(card_list):
+            Dcard = {
+                "listName": card.listName,
+                "cardID": card.id,
+                "title": card.Title,
+                "content": card.content,
+                "deadline": card.deadline,
+                "status" : card.status
             }
-            log_dict[idx] = Dlog
+            card_dict[idx] = Dcard
+        print(taskList)
         return jsonify(
             {
                 "resp": "ok",
-                "msg": "logs parsed",
-                "stuff": {"logData": log_dict, "encodedImage": encodedImage},
+                "stuff": {"taskList":taskList,"cardData": card_dict, "encodedImage": encodedImage},
             }
         )
 
 
-@app.route("/<string:username>/<int:trackerID>/bounce_log_cache", methods=["POST"])
-def bounce_log_cache(username, trackerID):
-    cache.delete_memoized(log, username, trackerID)
-    parent_tracker = TaskList.query.filter_by(id=trackerID).first()
-    img_pth = f"../frontend/myapp/src/assets/{username}/{trackerID}.png"
+# -------------------------BONCE_CARD_CACHE-------------------------#
+
+
+@app.route("/<string:username>/<int:listID>/bounce_card_cache", methods=["POST"])
+def bounce_log_cache(username, listID):
+    # cache.delete_memoized(log, username, listID)
+    parent_list = TaskList.query.filter_by(id=listID).first()
+    img_pth = f"../frontend/myapp/src/assets/{username}/{listID}.png"
     data = request.get_json()
 
-    new_log = Cards(
-        value=data["log_value"], note=data["log_note"], log=parent_tracker.type
+    new_card = Cards(
+        ListName=data["ListName"], title=data["title"], content=data["content"], deadline=data["deadline"], status=data["status"]
     )
-    parent_tracker.logs.append(new_log)
-    db.session.add(new_log)
+    parent_list.cards.append(new_card)
+    db.session.add(new_card)
     db.session.commit()
 
     with open(img_pth, "rb") as image_file:
         encodedImage = str(base64.b64encode(image_file.read()).decode("utf-8"))
 
-    all_logs = parent_tracker.logs
-    log_list = []
-    for mylog in all_logs:
-        log_list.append(mylog)
-    log_dict = {}
-    for idx, mylog in enumerate(log_list):
-        Dlog = {
-            "log": mylog.log,
-            "logID": mylog.id,
-            "value": mylog.value,
-            "note": mylog.note,
-            "timestamp": mylog.timestamp,
+    all_cards = parent_list.cards
+    card_list = []
+    for mycard in all_cards:
+        card_list.append(mycard)
+    card_dict = {}
+    for idx, mycard in enumerate(card_list):
+        Dcard = {
+            "title": mycard.Title,
+            "cardID": mycard.cardID,
+            "content": mycard.content,
+            "deadline": mycard.deadline,
+            "status": mycard.status,
         }
-        log_dict[idx] = Dlog
+        card_dict[idx] = Dcard
     return jsonify(
         {
             "resp": "ok",
             "msg": "new log added and log cache cleared successfully",
-            "stuff": {"logData": log_dict, "encodedImage": encodedImage},
+            "stuff": {"logData": card_dict, "encodedImage": encodedImage},
         }
     )
 
 
-# -------------------------DELETE_TRACKER-------------------------#
+# -------------------------DELETE_TASK_LIST-------------------------#
 
 
-@app.route("/<string:username>/<int:trackerID>/delete", methods=["GET"])
-def delete(username, trackerID):
-    cache.delete_memoized(dashboard, username)
-    targetTracker = TaskList.query.get_or_404(trackerID)
+@app.route("/<string:username>/<int:listID>/delete", methods=["GET"])
+def delete(username, listID):
+    print("delete request at backend")
+    # cache.delete_memoized(dashboard, username)
+    targetTaskList = TaskList.query.get_or_404(listID)
     try:
-        db.session.delete(targetTracker)
+        db.session.delete(targetTaskList)
         db.session.commit()
-        return jsonify({"resp": "ok", "msg": "Tracker deleted successfully."})
+        return jsonify({"resp": "ok", "msg": "List deleted successfully."})
     except:
 
         return jsonify(
@@ -306,17 +317,17 @@ def delete(username, trackerID):
         )
 
 
-# -------------------------DELETE_LOGS-------------------------#
+# -------------------------DELETE_CARDS-------------------------#
 
 
-@app.route("/<string:username>/<int:trackerID>/<int:logID>/delete", methods=["GET"])
-def delete_log(username, trackerID, logID):
-    cache.delete_memoized(log, username, trackerID)
-    myLog = Cards.query.get_or_404(logID)
+@app.route("/<string:username>/<int:listID>/<int:cardID>/delete", methods=["GET"])
+def delete_card(username, listID, cardID):
+    # cache.delete_memoized(log, username, trackerID)
+    myCard= Cards.query.get_or_404(cardID)
     try:
-        db.session.delete(myLog)
+        db.session.delete(myCard)
         db.session.commit()
-        return jsonify({"resp": "ok", "msg": "Event deleted succesfully"})
+        return jsonify({"resp": "ok", "msg": "Card deleted succesfully"})
     except:
         return jsonify(
             {
@@ -326,22 +337,25 @@ def delete_log(username, trackerID, logID):
         )
 
 
-# -------------------------UPDATE_LOGS-------------------------#
+# -------------------------UPDATE_CARDS-------------------------#
 
 
-@app.route("/<string:username>/<int:trackerID>/<int:logID>/update", methods=["POST"])
-def update_log(username, trackerID, logID):
-    cache.delete_memoized(log, username, trackerID)
-    myLog = Cards.query.filter_by(id=logID).first()
+@app.route("/<string:username>/<int:listID>/<int:cardID>/update", methods=["POST"])
+def update_card(username, listID, cardID):
+    # cache.delete_memoized(log, username, trackerID)
+    myCard= Cards.query.filter_by(id=cardID).first()
     data = request.get_json()
-    if myLog:
-        myLog.value, myLog.note = data["log_value"], data["log_note"]
+    if myCard:
+        myCard.title, myCard.lsitName, myCard.content, myCard.deadline, myCard.status = data["title"], data["taskList"], data["content"], data["deadline"], data["status"]
         db.session.commit()
         return jsonify({"resp": "ok", "msg": "log updated successfully"})
 
 
-@app.route("/<string:username>/export_trackers", methods=["GET", "POST"])
-def export_tracker(username):
+# -------------------------TASK_LIST_EXPORT-------------------------#
+
+
+@app.route("/<string:username>/export_task_lists", methods=["GET", "POST"])
+def export_task_lists(username):
     if request.method == "POST":
         job = trigerred_summary_export(username)
         return jsonify(

@@ -7,7 +7,6 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 Vue.config.productionTip = false;
-
 new Vue({
   router,
   render: (h) => h(App),

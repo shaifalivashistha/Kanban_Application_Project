@@ -1,21 +1,23 @@
 <template>
     <div id="dashboard">
         <nav>
-            <router-link :to="`/dashboard/${username}`"><button>{{ username }}</button></router-link> |
+            <router-link :to="`/dashboard/${username}`"><button>{{ username }}</button></router-link> |-|
             <button @click="logout()">Logout</button>
         </nav>
         <br>
         <div>
             <div>
-                <button @click="EuxportTrackers()">Export Summary</button>
+                <button @click="EuxportPageSummary()">Export Summary</button>
 
             </div>
             <br>
-            <h2>Welcome to the OnTime.</h2>
-            <!-- <h2>Hello!!</h2> -->
+            <h2><strong>Hello!! {{ username }}</strong></h2>
+            <h2>
+                <strong>Welcome to the OnTime.</strong>
+            </h2>
             <h4>
-                Hi USERNAME, welcome to your user dashboard.
-                <strong> Keep your work done on time</strong> with
+                welcome to your user dashboard.
+                <strong> Keep your work on time</strong> with
                 <strong> OnTime!!</strong>
             </h4>
             <br>
@@ -27,9 +29,9 @@
                     {{ success_msg }}
                 </p>
             </div>
-
-            <router-link :to="`/dashboard/${username}/create_list`">
-                <button style="
+            <div v-if="Object.keys(this.task_list_data).length < 5">
+                <router-link :to="`/dashboard/${username}/create_list`">
+                    <button style="
                     border-radius: 50%;
                     font-size: 20px;
                     background-color: #4681f4;
@@ -37,42 +39,63 @@
                     padding: 15px;
                     color: white;
                 ">+</button>
-            </router-link>
+                </router-link>
+            </div>
         </div>
         <br />
-        <div v-if="task_list.length">
-            <h1>||------Task Board------||</h1>
+        <div v-if="Object.keys(this.task_list_data).length">
+            <h1>
+                <strong>||------Task Board------||</strong>
+            </h1>
 
-            <div v-for="task in task_list"
-                style="display: flex; flex-direction: column; text-align: center; width: 100%;">
+            <div style="display: flex; flex-direction: column; text-align: center; width: 100%;">
                 <div style=" display: flex; flex-direction: row;">
-                    <div style="border: solid 1px orange; flex-grow: 1;">
+                    <div v-for="task in task_list_data" style="border: solid 1px orange; flex-grow: 1;">
                         <div class="dropdown">
                             <button class="dropbtn">{{ task.name }}</button>
                             <div class="dropdown-content">
-                                <button class="btn btn-success btn-lg"
-                                    @click="updateTracker(task.id, task.name, task.description)">
-                                    Update
-                                </button>
-                                <button type="button" class="btn btn-danger btn-lg"
-                                    @click="deleteTracker(task.id)">Delete</button>
+                                <a><button class="btn btn-success btn-lg"
+                                        @click="updateTaskList(task.id, task.name, task.description)">
+                                        Update
+                                    </button></a>
+                                <a><button type="button" class="btn btn-danger btn-lg"
+                                        @click="deleteTaskList(task.id)">Delete</button></a>
                             </div>
                         </div>
                         <br>
-                        <div class="middle-column">
-                            <div id="box5">
-                                Box 5
+                        <div v-if="task.cards" class="middle-column">
+                            <div v-for="card in cards" id="cards">
+                                <div class="dropdown">
+                                    <button class="dropbtn">{{ card.title }}</button>
+                                    <div class="dropdown-content">
+                                        <a><button class="btn btn-success btn-lg"
+                                                @click="updateTaskCard(card.id, card.title, card.listName, card.content, card.deadline, card.status)">
+                                                Update
+                                            </button></a>
+                                        <a><button type="button" class="btn btn-danger btn-lg"
+                                                @click="deleteTaskCard(card.id)">Delete</button></a>
+                                    </div>
+                                </div>
+                                <div>
+                                    {{ card.content }}
+                                </div>
+                                <div style="text-align: right;">
+                                    {{ card.deadline }}
+                                </div>
                             </div>
-                            <div id="box6">
-                                Box 6
-                            </div>
-                            <div id="box7">
-                                Box 7
-                            </div>
+
                         </div>
+                        <div v-else class="middle-column">
+                            <h3><strong>No cards in the list Add using "+"</strong></h3>
+                        </div>
+                        <br>
                         <router-link :to="`/${username}/${task.id}/create_card`"> <button
-                                style="border-radius: 50%; font-size: 20px; background-color: #4681f4; margin: 4px 2px; padding: 10px; color: white;">+</button>
+                                style="border-radius: 50%; font-size: 20px; background-color: #4681f4; margin: 4px 2px; padding: 10px; color: white;"
+                                @click="addCard(task.id)">+</button>
                         </router-link>
+                        <br>
+                        <button @click="EuxportListSummary()">Export List</button>
+
                     </div>
                 </div>
             </div>
@@ -92,9 +115,10 @@ export default {
         return {
             username: "",
             auth_token: "",
-            task_list: {},
+            task_list_data: {},
             error_txt: "",
             success_msg: "",
+            objLength: 0
         };
     },
     async created() {
@@ -142,7 +166,7 @@ export default {
     },
 
     methods: {
-        async deleteTracker(trackerID) {
+        async deleteTaskList(listID) {
             const deleteRequestOptions = {
                 methods: "GET",
                 headers: {
@@ -152,7 +176,8 @@ export default {
             };
             try {
                 if (!!this.auth_token) {
-                    await fetch(`${baseURL}/${this.username}/${trackerID}/delete`, deleteRequestOptions)
+                    console.log("delete request in progress")
+                    await fetch(`${baseURL}/${this.username}/${listID}/delete`, deleteRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
                                 throw Error(response.statusText);
@@ -187,16 +212,10 @@ export default {
                 console.log("Error: ", error);
             }
         },
-        async updateTracker(trackerID, trackerName, trackerDescription) {
-            sessionStorage.setItem("trackerID", trackerID);
-            sessionStorage.setItem("trackerName", trackerName);
-            sessionStorage.setItem("trackerDescription", trackerDescription);
-        },
-        async addNumTrackerLogs(trackerID) {
-            sessionStorage.setItem("trackerID", trackerID);
-        },
-        async addBoolTrackerLogs(trackerID) {
-            sessionStorage.setItem("trackerID", trackerID);
+        async updateTaskList(listID, listName, listDescription) {
+            sessionStorage.setItem("listID", listID);
+            sessionStorage.setItem("listName", listName);
+            sessionStorage.setItem("listDescription", listDescription);
         },
         async logout() {
             const logoutRequestOptions = {
@@ -233,9 +252,12 @@ export default {
                     console.log("Could not log out. Error: ", error);
                 });
         },
-        async ExportTrackers() {
-            const temp_data = this.tracker_data
-            const exportTrackersRequestOptions = {
+        async addCard(listID) {
+            sessionStorage.setItem("listID", listID);
+        },
+        async ExportListSummary() {
+            const temp_data = this.task_list_data
+            const exportListSummaryRequestOptions = {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json;charset=utf-8",
@@ -245,7 +267,7 @@ export default {
             }
             try {
                 if (!!this.auth_token) {
-                    await fetch(`${baseURL}/${this.username}/export_trackers`, exportTrackersRequestOptions)
+                    await fetch(`${baseURL}/${this.username}/export_trackers`, exportListSummaryRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
                                 throw Error(response.statusText);
