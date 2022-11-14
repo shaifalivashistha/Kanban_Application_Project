@@ -404,6 +404,7 @@ def update_card(username):
         return jsonify({"resp": "ok", "msg": "log updated successfully"})
 
 
+
 # -------------------------TASK_LIST_EXPORT-------------------------#
 
 
@@ -432,6 +433,7 @@ def export_cards(username, listID):
 
 
 # -------------------------SUMMARY_PAGE-------------------------#
+
 
 @app.route("/<string:username>/summary_page", methods=["GET"])
 @cache.memoize()
