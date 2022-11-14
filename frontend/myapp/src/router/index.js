@@ -6,7 +6,9 @@ import RegisterView from "../views/RegisterView.vue";
 import DashboardView from "../views/DashboardView.vue";
 import createTaskView from "../views/createTaskView.vue";
 import createCardView from "../views/createCardView.vue"
-
+import updateCardView from "../views/updateCardView.vue"
+import updateListView from "../views/updateListView.vue"
+import summaryView from "../views/summaryView.vue"
 Vue.use(VueRouter);
 
 const routes = [
@@ -45,9 +47,24 @@ const routes = [
     component: createTaskView,
   },
   {
-    path: "/:username/:listID/create_card",
+    path: "/:username/create_card",
     name: "create_card",
     component: createCardView,
+  },
+  {
+    path: "/:username/update_task_list",
+    name: "update_task_list",
+    component: updateListView,
+  },
+  {
+    path: "/:username/update_card",
+    name: "update_card",
+    component: updateCardView,
+  },
+  {
+    path: "/:username/summary_page",
+    name: "summary_page",
+    component: summaryView,
   },
 ];
 

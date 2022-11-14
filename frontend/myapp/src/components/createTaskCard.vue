@@ -19,7 +19,7 @@
             <form @submit.prevent="addCardEntry()">
 
                 <h3 class="form text-center mt-2 mb-4">!!---Add Tasks to your Task list here---!!</h3>
-                <div class="dropdown">
+                <!-- <div class="dropdown">
                     <button class="dropbtn">Select List</button>
                     <div class="dropdown-content">
                         <a v-for="name in taskList"><button class="btn btn-success btn-lg" @click="changeList(name)">
@@ -27,7 +27,15 @@
                             </button>
                         </a>
                     </div>
-                </div>
+                </div> -->
+                <h5><label for="listName">Select List</label></h5>
+
+                <select
+                    style="background-color: lightblue; border-color: darkcyan; text-decoration: solid; text-decoration-color: black; font-size: large;"
+                    id="selected_list_name" @click="changeList">
+                    <option v-for="index in taskDict">{{ index.listName }}</option>
+
+                </select>
                 <h5>Title</h5>
                 <input id="title" type="text" v-model="title" ref="title" class="form-control form-control-lg"
                     placeholder="Task title" required autocomplete="off" />
@@ -35,14 +43,14 @@
                 <!-- <input id="title" type="text" class="form-control form-control-lg" placeholder="Task title" required
                     autocomplete="off" /> -->
                 <h5>Content</h5>
-                <input id="content" type="text" class="form-control form-control-lg" placeholder="Task content" required
-                    autocomplete="off" />
+                <input id="content" v-model="content" type="text" class="form-control form-control-lg"
+                    placeholder="Task content" required autocomplete="off" />
                 <h5>Deadline</h5>
-                <input id="title" type="date" class="form-control form-control-lg" placeholder="dd-mm-yyyy" required
-                    autocomplete="off" />
+                <input id="title" v-model="deadline" type="date" class="form-control form-control-lg"
+                    placeholder="dd-mm-yyyy" required autocomplete="off" />
                 <h5>Mark as Complete</h5>
                 <label class="switch">
-                    <input type="checkbox">
+                    <input @change="changeStatus" v-model="status" type="checkbox">
                     <span class="slider round"></span>
                 </label>
 
@@ -65,13 +73,13 @@ export default {
             listID: null,
             username: "",
             auth_token: "",
-            taskList: [],
+            taskDict: {},
             listName: "",
             title: "",
-            card_data: {},
+            content: "",
             deadline: "",
-            status: "",
-            file: "",
+            status: "No",
+            checkStatus: false,
             error_txt: "",
             success_msg: "",
         }
@@ -80,6 +88,10 @@ export default {
         this.auth_token = sessionStorage.getItem("authentication-token");
         this.username = sessionStorage.getItem("username");
         this.listID = sessionStorage.getItem("listID");
+        this.listName = sessionStorage.getItem("listName")
+
+        // document.getElementsByTagName("option").value = 
+        // document.getElementById("selected_list_name").selectedIndex =;
         const getRequestOptions = {
             methods: "GET",
             headers: {
@@ -89,8 +101,8 @@ export default {
         }
         try {
             if (!!this.auth_token) {
-                console.log(this.listID)
-                await fetch(`${baseURL}/${this.username}/${this.listID}/create_card`, getRequestOptions)
+                // console.log(this.listID)
+                await fetch(`${baseURL}/${this.username}/create_card`, getRequestOptions)
                     .then(async response => {
                         if (!response.ok) {
                             throw Error(response.statusText);
@@ -99,11 +111,10 @@ export default {
                         if (!!myResp) {
                             if (myResp.resp == "ok") {
                                 this.success_msg = myResp.msg;
-                                this.card_data = myResp.stuff.cardData;
-                                this.file = myResp.stuff.encodedImage;
-                                this.taskList = myResp.stuff.taskList
-                                console.log(myResp.stuff.taskList)
-                                console.log(this.card_data)
+                                this.taskDict = myResp.stuff.taskDict
+                                sessionStorage.removeItem("listID")
+                                sessionStorage.removeItem("listName")
+                                // console.log(myResp.stuff.taskDict)
                             }
                             else {
                                 throw Error(myResp.msg);
@@ -115,7 +126,7 @@ export default {
                     })
                     .catch(error => {
                         this.error_txt = error;
-                        console.log("Could not retrieve log data. Error: ", error);
+                        console.log("Could not retrieve card data. Error: ", error);
                     })
             }
             else {
@@ -125,7 +136,7 @@ export default {
         }
         catch (error) {
             this.error_txt = error;
-            console.log("Could not retrieve log data. Error: ", error);
+            console.log("Could not retrieve card data. Error: ", error);
         }
     },
     methods: {
@@ -148,7 +159,9 @@ export default {
             }
             try {
                 if (!!this.auth_token) {
+                    console.log(temp_data)
                     await fetch(`${baseURL}/${this.username}/${this.listID}/bounce_card_cache`, addCardRequestOptions)
+                        // await fetch(`${baseURL}/dashboard/${this.username}`, addCardRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
                                 throw Error(response.statusText);
@@ -182,12 +195,34 @@ export default {
                 console.log("Could not add card to list. Error: ", error);
             }
         },
-        async changeList(name) {
+        async changeList() {
+            // console.log(document.getElementById("selected_list_name").selectedIndex)
+            var x = document.getElementById("selected_list_name").selectedIndex;
+            document.getElementsByTagName("option")[x].value = this.taskDict[x].listName;
+            this.listName = document.getElementsByTagName("option")[x].value
             console.log(this.listName)
-            this.listName = name
-            console.log(this.listName)
+            sessionStorage.setItem("listName", this.listName)
+            this.listID = this.taskDict[x].id
+            sessionStorage.setItem("listID", this.listID)
+            console.log(this.listID)
+
+
         },
-        async updateLog(cardID, listName, title, content, deadline, status) {
+        async changeStatus() {
+            // console.log(this.status)
+            this.checkStatus = !this.checkStatus
+            if (this.checkStatus) {
+                this.status = "Yes"
+                console.log(this.status)
+                sessionStorage.setItem("status", this.status)
+            }
+            else {
+                this.status = "No"
+                sessionStorage.setItem("status", this.status)
+            }
+            // console.log(this.status)
+        },
+        async updateCard(cardID, listName, title, content, deadline, status) {
             sessionStorage.setItem("cardID", cardID)
             sessionStorage.setItem("listName", listName)
             sessionStorage.setItem("title", title)

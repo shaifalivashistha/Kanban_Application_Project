@@ -86,6 +86,8 @@ export default {
                             if (!!myResp) {
                                 if (myResp.resp == "ok") {
                                     this.success_msg = myResp.msg;
+                                    sessionStorage.removeItem("listID")
+                                    sessionStorage.removeItem("listName")
                                     this.$router.push({ path: `/dashboard/${this.username}` });
                                 }
                                 else {

@@ -3,18 +3,13 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/login">Login</router-link> |
+      <router-link to="/login_page">Login</router-link> |
       <router-link to="/register">SignUp</router-link>
     </nav>
     <p id="error_txt" class="alert alert-danger" role="alert" v-if="error_txt">
       {{ error_txt }}
     </p>
-    <p
-      id="success_msg"
-      class="alert alert-success"
-      role="alert"
-      v-if="success_msg"
-    >
+    <p id="success_msg" class="alert alert-success" role="alert" v-if="success_msg">
       {{ success_msg }}
     </p>
 
@@ -23,53 +18,23 @@
         <h3 class="form text-center mt-2 mb-4">Sign Up</h3>
         <div class="form-group">
           <label>Username</label>
-          <input
-            id="username"
-            type="text"
-            v-model="username"
-            class="form-control form-control-lg"
-            placeholder="Username"
-            required
-            autocomplete="off"
-          />
+          <input id="username" type="text" v-model="username" class="form-control form-control-lg"
+            placeholder="Username" required autocomplete="off" />
         </div>
         <div class="form-group">
           <label>Email address</label>
-          <input
-            id="email"
-            type="email"
-            v-model="email"
-            class="form-control form-control-lg"
-            placeholder="email"
-            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
-            required
-            autocomplete="off"
-          />
+          <input id="email" type="email" v-model="email" class="form-control form-control-lg" placeholder="email"
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required autocomplete="off" />
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input
-            id="password"
-            type="password"
-            v-model="password"
-            class="form-control form-control-lg"
-            placeholder="Password"
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            required
-            autocomplete="off"
-          />
+          <input id="password" type="password" v-model="password" class="form-control form-control-lg"
+            placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="off" />
         </div>
         <div class="form-group">
           <label>Confirm Password</label>
-          <input
-            id="password_confirm"
-            type="password"
-            v-model="password_confirm"
-            class="form-control form-control-lg"
-            placeholder="Confirm Password"
-            required
-            autocomplete="off"
-          />
+          <input id="password_confirm" type="password" v-model="password_confirm" class="form-control form-control-lg"
+            placeholder="Confirm Password" required autocomplete="off" />
         </div>
         <button id="submit" class="btn btn-dark btn-lg btn-block">
           Sign Up

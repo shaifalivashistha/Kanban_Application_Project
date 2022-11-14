@@ -22,7 +22,7 @@ class User(db.Model, UserMixin):
 class TaskList(db.Model):
     __tablename__ = "task_list"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(300), nullable=False)
+    name = db.Column(db.String(300), nullable=False, unique=True)
     description = db.Column(db.String(300), nullable=False)
     date_created = db.Column(db.DateTime(timezone=True), default=datetime.now)
     cards = db.relationship(
@@ -33,7 +33,7 @@ class TaskList(db.Model):
 class Cards(db.Model):
     __tablename__ = "cards"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    listName = db.Column(db.Integer, nullable=False, unique=True)
+    listName = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(300), nullable=False)
     content = db.Column(db.String(300), nullable=False)
     deadline = db.Column(db.DateTime(300), nullable=True)
