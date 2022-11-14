@@ -91,7 +91,7 @@
                                             <router-link :to="`/${username}/update_card`">
                                                 <a>
                                                     <button class="btn btn-success btn-lg" style="font-size: medium;"
-                                                        @click="updateTaskCard(task.id, card.listName, card.id, card.title, card.content, card.deadline, card.status)">
+                                                        @click="updateTaskCard(task.id, card.listName, card.id, card.title, card.content, card.deadline, card.status, card.checkStatus)">
 
                                                         Update
 
@@ -109,6 +109,9 @@
                                         <br>
                                         <h4 style="text-align:end;"><u><strong>Deadline:</strong></u> {{ card.deadline
                                         }}</h4>
+                                        <br>
+                                        <h4 style="text-align:end;"><u><strong>Status:</strong></u> {{ card.status
+                                        }}</h4>
                                     </div>
                                     <br>
                                 </div>
@@ -124,7 +127,7 @@
                                 @click="addCard(task.id, task.name)">+</button>
                         </router-link>
                         <br>
-                        <button @click="ExportListSummary()">Export List</button>
+                        <button @click="ExportCard(task.id)">Export List</button>
 
                     </div>
                 </div>
@@ -149,7 +152,7 @@ export default {
             error_txt: "",
             success_msg: "",
             task_card_data: {},
-            objLength: 0
+            objLength: 0,
         };
     },
     async created() {
@@ -298,7 +301,7 @@ export default {
             sessionStorage.setItem("listName", listName);
             sessionStorage.setItem("listDescription", listDescription);
         },
-        async updateTaskCard(listID, listName, cardID, cardTitle, cardContent, cardDeadline, cardStatus) {
+        async updateTaskCard(listID, listName, cardID, cardTitle, cardContent, cardDeadline, cardStatus, checkStatus) {
             sessionStorage.setItem("listID", listID);
             sessionStorage.setItem("listName", listName);
             sessionStorage.setItem("cardID", cardID)
@@ -306,6 +309,8 @@ export default {
             sessionStorage.setItem("cardContent", cardContent)
             sessionStorage.setItem("cardDeadline", cardDeadline)
             sessionStorage.setItem("cardStatus", cardStatus)
+            sessionStorage.setItem("checkStatus", String(checkStatus))
+            console.log(checkStatus)
 
         },
         async logout() {
@@ -346,6 +351,7 @@ export default {
         async addCard(listID, listName) {
             sessionStorage.setItem("listID", listID);
             sessionStorage.setItem("listName", listName)
+            sessionStorage.setItem("checkStatus", "")
         },
         async ExportPageSummary() {
             const temp_data = this.task_list_data
@@ -394,6 +400,54 @@ export default {
             }
         },
 
+        async ExportCard(listID) {
+            const temp_data = this.card_data
+            const exportEventsRequestOptions = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json;charset=utf-8",
+                    "Authentication-Token": `${this.auth_token}`,
+                },
+                body: JSON.stringify(temp_data)
+            }
+            try {
+                // console.log("trying to fetch")
+                // console.log(post_req_opt.body)
+                if (!!this.auth_token) {
+                    await fetch(`${baseURL}/${this.username}/${listID}/export_card`, exportEventsRequestOptions)
+                        .then(async response => {
+                            if (!response.ok) {
+                                throw Error(response.statusText);
+                            }
+                            const myResp = await response.json();
+                            if (!!myResp) {
+                                if (myResp.resp == "ok") {
+                                    this.success_msg = myResp.msg;
+                                    this.$router.go();
+                                }
+                                else {
+                                    throw Error(myResp.msg);
+                                }
+                            }
+                            else {
+                                throw Error("something went wrong");
+                            }
+                        })
+                        .catch(error => {
+                            this.error_txt = error;
+                            console.log("Failed to export. Error: ", error);
+                        });
+                }
+                else {
+                    this.logout();
+                    throw Error("authentication failed");
+                }
+            }
+            catch (error) {
+                this.error_txt = error;
+                console.log("Failed to export. Error: ", error)
+            }
+        },
     }
 }
 </script>
@@ -414,26 +468,6 @@ li {
 
 a {
     color: #42b983;
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td {
-    text-align: center;
-}
-
-th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
 }
 
 nav {

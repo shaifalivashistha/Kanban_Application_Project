@@ -38,6 +38,7 @@ class Cards(db.Model):
     content = db.Column(db.String(300), nullable=False)
     deadline = db.Column(db.DateTime(300), nullable=True)
     status = db.Column(db.String(300), nullable=False)
+    checkStatus = db.Column(db.String(300))
 
 
 class UserTaskList(db.Model):

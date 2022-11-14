@@ -1,9 +1,12 @@
 <template>
     <div id="summary">
         <nav style="text-align: left; ">
-            <button style="font-size: medium; margin-right:16px" @click="goToDashboard()">{{ username }}</button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px" @click="goToDashboard()"><strong>{{
+                    username
+            }}</strong></button>
 
-            <button style="font-size: medium; margin-right:16px" @click="logout()">Logout</button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
+                @click="logout()"><strong>Logout</strong></button>
         </nav>
         <br>
         <div>
@@ -38,7 +41,7 @@
                     <div>
                         <button
                             style="padding: 6px; text-decoration: double; background-color: khaki; font-size: medium; border-color: darkgoldenrod;">{{
-        task.name
+                                    task.name
                             }}</button>
                     </div>
                     <br>
@@ -52,15 +55,19 @@
                                 <br>
                                 <div
                                     style="padding: 6px; text-decoration: double; background-color: lightskyblue; font-size: medium; border-color:blue;">
-                                    Task Completed: 9/9</div>
+                                    Task Completed: {{ task.completed }}/{{ Object.keys(task.task_cards_data).length }}
+                                </div>
                                 <div
                                     style="padding: 6px; text-decoration: double; background-color: lightcoral; font-size: medium; border-color:blue;">
-                                    Deadlines Passed: 9/9</div>
+                                    Deadlines Passed: {{ task.passed }}/{{ Object.keys(task.task_cards_data).length }}
+                                </div>
                                 <br>
                                 <div>
-                                    <h4> <u><strong><img img src="../assets/test/2.png" width="200"
-                                                    height="200"></strong></u></h4>
-                                    <!-- <h4> <u><strong><img :src="'data:image/png;base64,' + this.file" /></strong></u></h4> -->
+                                    <!-- <h4> <u><strong><img img src="../assets/test/2.png" width="200" -->
+                                    <!-- height="200"></strong></u></h4> -->
+                                    <h4> <u><strong><img width="200"
+                                                    :src="'data:image/png;base64,' + task.encoded_img" /></strong></u>
+                                    </h4>
                                 </div>
                                 <br>
 
@@ -94,6 +101,7 @@ export default {
         this.auth_token = sessionStorage.getItem("authentication-token");
         this.username = sessionStorage.getItem("username");
 
+
         const requsetOptions = {
             methods: "GET",
             headers: {
@@ -103,7 +111,7 @@ export default {
         };
         try {
             if (!!this.auth_token) {
-                fetch(`${baseURL}/dashboard/${this.username}`, requsetOptions)
+                fetch(`${baseURL}/${this.username}/summary_page`, requsetOptions)
                     .then(async response => {
                         if (!response.ok) {
                             throw Error(response.statusText);
@@ -112,7 +120,9 @@ export default {
                         if (!!myResp) {
                             this.success_msg = myResp.msg;
                             this.task_list_data = myResp.stuff;
-                            this.file = myResp.file;
+                            // this.file = this.task_list_data..encoded_img;
+                            console.log(this.task_list_data)
+                            // console.log(this.file)
 
                         }
                         else {
@@ -138,7 +148,17 @@ export default {
 
     methods: {
         async goToDashboard() {
+            sessionStorage.removeItem("listID");
+            sessionStorage.removeItem("listDescription");
+            sessionStorage.removeItem("listName");
+            sessionStorage.removeItem("cardID");
+            sessionStorage.removeItem("cardTitle");
+            sessionStorage.removeItem("cardContent")
+            sessionStorage.removeItem("cardDeadline")
+            sessionStorage.removeItem("cardStatus")
+            console.log("here")
             this.$router.push({ path: `/dashboard/${this.username}` })
+
         },
         async logout() {
             const logoutRequestOptions = {

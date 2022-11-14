@@ -1,9 +1,13 @@
 <template>
     <div id="cards">
-        <nav>
-            <router-link :to="`/dashboard/${username}/create_card`"><button>{{ username }}</button></router-link> |
-            <router-link :to="`/dashboard/${username}`"><button>Dashboard</button></router-link> |
-            <button @click="logout()">Logout</button>
+        <nav style="text-align: left; ">
+            <button style=" margin-right:16px; font-size: medium;" class="btn btn-lg"><strong>{{
+                    username
+            }}</strong></button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
+                @click="goToDashboard()"><strong>Dashboard</strong></button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
+                @click="logout()"><strong>Logout</strong></button>
         </nav>
         <br>
         <div class="container">
@@ -50,7 +54,7 @@
                     placeholder="dd-mm-yyyy" required autocomplete="off" />
                 <h5>Mark as Complete</h5>
                 <label class="switch">
-                    <input @change="changeStatus" v-model="status" type="checkbox">
+                    <input id="status_switch" @change="changeStatus" type="checkbox" v-model="checkStatus">
                     <span class="slider round"></span>
                 </label>
 
@@ -78,8 +82,8 @@ export default {
             title: "",
             content: "",
             deadline: "",
-            status: "No",
-            checkStatus: false,
+            status: "Pending",
+            checkStatus: "",
             error_txt: "",
             success_msg: "",
         }
@@ -112,8 +116,9 @@ export default {
                             if (myResp.resp == "ok") {
                                 this.success_msg = myResp.msg;
                                 this.taskDict = myResp.stuff.taskDict
-                                sessionStorage.removeItem("listID")
-                                sessionStorage.removeItem("listName")
+                                document.getElementById("status_switch").value = "off"
+                                console.log(document.getElementById("status_switch").value)
+
                                 // console.log(myResp.stuff.taskDict)
                             }
                             else {
@@ -147,7 +152,8 @@ export default {
                 title: this.title,
                 content: this.content,
                 deadline: this.deadline,
-                status: this.status
+                status: this.status,
+                checkStatus: this.checkStatus
             }
             const addCardRequestOptions = {
                 method: "POST",
@@ -170,6 +176,8 @@ export default {
                             if (!!myResp) {
                                 if (myResp.resp == "ok") {
                                     this.success_msg = myResp.msg;
+                                    sessionStorage.removeItem("listID")
+                                    sessionStorage.removeItem("listName")
                                 }
                                 else {
                                     throw Error(myResp.msg);
@@ -196,7 +204,6 @@ export default {
             }
         },
         async changeList() {
-            // console.log(document.getElementById("selected_list_name").selectedIndex)
             var x = document.getElementById("selected_list_name").selectedIndex;
             document.getElementsByTagName("option")[x].value = this.taskDict[x].listName;
             this.listName = document.getElementsByTagName("option")[x].value
@@ -209,70 +216,38 @@ export default {
 
         },
         async changeStatus() {
-            // console.log(this.status)
-            this.checkStatus = !this.checkStatus
-            if (this.checkStatus) {
-                this.status = "Yes"
-                console.log(this.status)
-                sessionStorage.setItem("status", this.status)
+
+            var x = document.getElementById("status_switch")
+            console.log(x.value)
+            if (x.value == "on") {
+                console.log("THE VALUE IS IN ON IF")
+                x.value = "off"
+                this.checkStatus = ""
+                this.status = "Pending"
+                sessionStorage.setItem("checkStatus", this.checkStatus)
+                sessionStorage.setItem("cardStatus", this.status)
             }
-            else {
-                this.status = "No"
-                sessionStorage.setItem("status", this.status)
+
+            else if (x.value == "off") {
+                console.log("THE VALUE IS IN OFF IF ELSE")
+                x.value = "on"
+                this.checkStatus = "on"
+                this.status = "Finished"
+                sessionStorage.setItem("cardStatus", this.status)
+                sessionStorage.setItem("checkStatus", this.checkStatus)
             }
-            // console.log(this.status)
         },
-        async updateCard(cardID, listName, title, content, deadline, status) {
-            sessionStorage.setItem("cardID", cardID)
-            sessionStorage.setItem("listName", listName)
-            sessionStorage.setItem("title", title)
-            sessionStorage.setItem("content", content)
-            sessionStorage.setItem("deadline", deadline)
-            sessionStorage.setItem("status", status)
-        },
-        async deleteLog(cardID) {
-            const deleteRequestOptions = {
-                methods: "GET",
-                headers: {
-                    "Content-Type": "application/json;charset=utf-8",
-                    "Authentication-Token": `${this.auth_token}`,
-                }
-            }
-            try {
-                if (!!this.auth_token) {
-                    await fetch(`${baseURL}/${this.username}/${this.listID}/${cardID}/delete`, deleteRequestOptions)
-                        .then(async response => {
-                            if (!response.ok) {
-                                throw Error(response.statusText);
-                            }
-                            const myResp = await response.json();
-                            if (!!myResp) {
-                                if (myResp.resp == "ok") {
-                                    this.success_msg = myResp.msg;
-                                }
-                                else {
-                                    throw Error(myResp.msg);
-                                }
-                            }
-                            else {
-                                throw Error("something went wrong (data not received)");
-                            }
-                        })
-                        .catch(error => {
-                            this.error_txt = error;
-                            console.log("Could not delete entry from log. Error: ", error);
-                        })
-                    this.$router.go();
-                }
-                else {
-                    this.logout();
-                    throw Error("authentication failed.")
-                }
-            }
-            catch (error) {
-                this.error_txt = error;
-                console.log("Could not delete entry from log. Error: ", error);
-            }
+        async goToDashboard() {
+            sessionStorage.removeItem("listID");
+            sessionStorage.removeItem("listDescription");
+            sessionStorage.removeItem("listName");
+            sessionStorage.removeItem("cardID");
+            sessionStorage.removeItem("cardTitle");
+            sessionStorage.removeItem("cardContent")
+            sessionStorage.removeItem("cardDeadline")
+            sessionStorage.removeItem("cardStatus")
+            sessionStorage.removeItem("checkStatus")
+            this.$router.push({ path: `/dashboard/${this.username}` })
         },
         async logout() {
             const logoutRequestOptions = {
@@ -309,136 +284,11 @@ export default {
                     console.log("Could not log out. Error: ", error);
                 });
         },
-        // async ExportEvents() {
-        //     const temp_data = this.card_data
-        //     const exportEventsRequestOptions = {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json;charset=utf-8",
-        //             "Authentication-Token": `${this.auth_token}`,
-        //         },
-        //         body: JSON.stringify(temp_data)
-        //     }
-        //     try {
-        //         // console.log("trying to fetch")
-        //         // console.log(post_req_opt.body)
-        //         if (!!this.auth_token) {
-        //             await fetch(`${baseURL}/${this.username}/${this.trackerID}/export_events`, exportEventsRequestOptions)
-        //                 .then(async response => {
-        //                     if (!response.ok) {
-        //                         throw Error(response.statusText);
-        //                     }
-        //                     const myResp = await response.json();
-        //                     if (!!myResp) {
-        //                         if (myResp.resp == "ok") {
-        //                             this.success_msg = myResp.msg;
-        //                             this.$router.go();
-        //                         }
-        //                         else {
-        //                             throw Error(myResp.msg);
-        //                         }
-        //                     }
-        //                     else {
-        //                         throw Error("something went wrong");
-        //                     }
-        //                 })
-        //                 .catch(error => {
-        //                     this.error_txt = error;
-        //                     console.log("Failed to export. Error: ", error);
-        //                 });
-        //         }
-        //         else {
-        //             this.logout();
-        //             throw Error("authentication failed");
-        //         }
-        //     }
-        //     catch (error) {
-        //         this.error_txt = error;
-        //         console.log("Failed to export. Error: ", error)
-        //     }
-        // },
+
     }
 }
 </script>
 <style scoped lang="scss">
-h3 {
-    margin: 40px 0 0;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td {
-    text-align: center;
-}
-
-th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-.dropbtn {
-    background-color: #2fc4ff;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: rgb(117, 204, 255);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-
 .switch {
     position: relative;
     display: inline-block;
@@ -462,7 +312,6 @@ tr:nth-child(even) {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-    border-radius: 34px;
 }
 
 .slider:before {
@@ -475,7 +324,6 @@ tr:nth-child(even) {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-    border-radius: 50%;
 }
 
 input:checked+.slider {
@@ -490,6 +338,15 @@ input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
 </style>
   

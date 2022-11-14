@@ -16,7 +16,10 @@ import os
 import base64
 import os.path as osp
 import time
+import matplotlib
+matplotlib.use('Agg')
 from matplotlib.figure import Figure
+from matplotlib import pyplot as plt
 
 
 @app.before_first_request
@@ -112,9 +115,9 @@ def login():
 
 
 @app.route("/dashboard/<string:username>", methods=["GET"])
-# @cache.memoize()
+@cache.memoize()
 def dashboard(username):
-    time.sleep(1)
+    time.sleep(3)
     user_data = User.query.filter_by(username=username).first()
     taskObjs = user_data.task_list
 
@@ -133,7 +136,8 @@ def dashboard(username):
                 "listName": card.listName,
                 "content" : card.content,
                 "deadline" : card.deadline.strftime("%Y-%m-%d"),
-                "status": card.status
+                "status": card.status,
+                "checkStatus" : card.checkStatus
             }
         # print(card_data_dict)
         task_list_dict[idx] = {
@@ -154,7 +158,7 @@ def dashboard(username):
 @app.route("/logout_page", methods=["GET"])
 def logout():
     session.clear()
-    # cache.clear()
+    cache.clear()
     return jsonify({"resp": "ok", "msg": "Logged out"})
 
 
@@ -163,7 +167,9 @@ def logout():
 
 @app.route("/dashboard/<string:username>/create_list", methods=["POST", "GET"])
 def create_list(username):
-    # cache.delete_memoized(dashboard, username)
+    cache.delete_memoized(cards, username)
+    cache.delete_memoized(dashboard, username)
+    cache.delete_memoized(summary_page, username)
     if request.method == "POST":
 
         data = request.get_json()
@@ -184,7 +190,7 @@ def create_list(username):
         fig = Figure()
         axis = fig.add_subplot(1, 1, 1)
         axis.set(xlabel="Time Stamp", ylabel="Value")
-        fig.savefig(f"../frontend/myapp/src/assets/{username}/{newTaskList.id}.png")
+        fig.savefig(f"../frontend/myapp/src/assets/{username}/{newTaskList.name}.png")
         return jsonify({"resp": "ok", "msg": "task list successfully created"})
     else:
         return jsonify(
@@ -200,7 +206,9 @@ def create_list(username):
 
 @app.route("/<string:username>/update_task_list", methods=["POST"])
 def update(username):
-    # cache.delete_memoized(dashboard, username)
+    cache.delete_memoized(cards, username)
+    cache.delete_memoized(dashboard, username)
+    cache.delete_memoized(summary_page, username)
     data = request.get_json()
     # print(data)
     task_list = TaskList.query.filter_by(id=data["listID"]).first()
@@ -214,12 +222,12 @@ def update(username):
 
 
 @app.route("/<string:username>/create_card", methods=["GET"])
-# @cache.memoize()
+@cache.memoize()
 def cards(username):
-
+    # cache.delete_memoized(dashboard, username)
     # parent_list = TaskList.query.filter_by(id=listID).first()
     if request.method == "GET":
-        time.sleep(1)
+        time.sleep(3)
         
         # all_cards = parent_list.cards
 
@@ -268,15 +276,17 @@ def cards(username):
 
 
 @app.route("/<string:username>/<int:listID>/bounce_card_cache", methods=["POST"])
-def bounce_log_cache(username, listID):
-    # cache.delete_memoized(log, username, listID)
+def bounce_card_cache(username, listID):
+    cache.delete_memoized(cards, username)
+    cache.delete_memoized(dashboard, username)
+    cache.delete_memoized(summary_page, username)
     data = request.get_json()
     parent_list = TaskList.query.filter_by(id=listID).first()
     img_pth = f"../frontend/myapp/src/assets/{username}/{listID}.png"
 
     # print(data)
     new_card = Cards(
-        listName=data["listName"], title=data["title"], content=data["content"], deadline=datetime.strptime(data["deadline"], '%Y-%m-%d').date(), status=data["status"]
+        listName=data["listName"], title=data["title"], content=data["content"], deadline=datetime.strptime(data["deadline"], '%Y-%m-%d').date(), status=data["status"], checkStatus=data["checkStatus"]
     )
     parent_list.cards.append(new_card)
     db.session.add(new_card)
@@ -315,7 +325,9 @@ def bounce_log_cache(username, listID):
 @app.route("/<string:username>/<int:listID>/delete", methods=["GET"])
 def delete(username, listID):
     # print("delete request at backend")
-    # cache.delete_memoized(dashboard, username)
+    cache.delete_memoized(dashboard, username)
+    cache.delete_memoized(summary_page, username)
+    cache.delete_memoized(cards, username)
     targetTaskList = TaskList.query.get_or_404(listID)
     try:
         db.session.delete(targetTaskList)
@@ -336,7 +348,9 @@ def delete(username, listID):
 
 @app.route("/<string:username>/<int:listID>/<int:cardID>/delete", methods=["GET"])
 def delete_card(username, listID, cardID):
-    # cache.delete_memoized(log, username, trackerID)
+    cache.delete_memoized(cards, username)
+    cache.delete_memoized(dashboard, username)
+    cache.delete_memoized(summary_page, username)
     myCard= Cards.query.get_or_404(cardID)
     try:
         db.session.delete(myCard)
@@ -356,7 +370,9 @@ def delete_card(username, listID, cardID):
 
 @app.route("/<string:username>/update_card", methods=["POST"])
 def update_card(username):
-    # cache.delete_memoized(log, username, trackerID)
+    cache.delete_memoized(cards, username)
+    cache.delete_memoized(dashboard, username)
+    cache.delete_memoized(summary_page, username)
     data = request.get_json()
 
     myCard= Cards.query.filter_by(id=data["cardID"]).first()
@@ -368,7 +384,7 @@ def update_card(username):
         db.session.commit()
         parent_list = TaskList.query.filter_by(name=data["listName"]).first()
         new_card = Cards(
-        listName=data["listName"], title=data["title"], content=data["content"], deadline=datetime.strptime(data["deadline"], '%Y-%m-%d').date(), status=data["status"]
+        listName=data["listName"], title=data["title"], content=data["content"], deadline=datetime.strptime(data["deadline"], '%Y-%m-%d').date(), status=data["status"], checkStatus=data["checkStatus"]
         )
         parent_list.cards.append(new_card)
         db.session.add(new_card)
@@ -402,8 +418,10 @@ def export_task_lists(username):
         return jsonify({"resp": "not ok", "msg": "GET request received"})
 
 
-@app.route("/<string:username>/<int:listID>/export_task_lists", methods=["GET", "POST"])
-def export_events(username, listID):
+# -------------------------CARDS_EXPORT-------------------------#
+
+@app.route("/<string:username>/<int:listID>/export_card", methods=["GET", "POST"])
+def export_cards(username, listID):
     if request.method == "POST":
         job = trigerred_events_export(username, listID)
         return jsonify(
@@ -411,3 +429,70 @@ def export_events(username, listID):
         )
     else:
         return jsonify({"resp": "not ok", "msg": "GET request received"})
+
+
+# -------------------------SUMMARY_PAGE-------------------------#
+
+@app.route("/<string:username>/summary_page", methods=["GET"])
+@cache.memoize()
+def summary_page(username):
+    time.sleep(3)
+    user_data = User.query.filter_by(username=username).first()
+    taskObjs = user_data.task_list
+
+    task_list = []
+    for taskObj in taskObjs:
+        task_list.append(taskObj)
+
+    task_list_dict = {}
+    for idx, task in enumerate(task_list):
+
+        card_data_dict= {}
+        deadlines = {}
+        completed = 0
+        passed = 0
+        for key, card in enumerate(task.cards):
+
+            card_data_dict[key] = {
+                "id" : card.id,
+                "title": card.title,
+                "listName": card.listName,
+                "content" : card.content,
+                "deadline" : card.deadline.strftime("%Y-%m-%d"),
+                "status": card.status
+            }
+            if card.status:
+                completed += 1
+            if card.deadline.date() < datetime.now().date():
+                passed += 1
+            try:
+                deadlines[card_data_dict[key]["deadline"]] += 1
+            except:
+                deadlines[card_data_dict[key]["deadline"]] = 1
+
+        # img_pth =f'/home/shaifali/Downloads/Mad2_Data/{username}/{task.name}.png'
+        img_pth =f'/home/shaifali/Desktop/Kanban_Application_Project/frontend/myapp/src/assets/{username}/{task.name}.png'
+
+
+        # f1 = plt.figure()
+        plt.clf()
+        plt.bar(deadlines.keys(), deadlines.values())
+        plt.xlabel('Date')
+        plt.ylabel('Number of Tasks')
+        plt.savefig(img_pth)
+        with open(img_pth, "rb") as image_file:
+            encoded_img = str(base64.b64encode(image_file.read()).decode("utf-8"))
+            
+        # print(card_data_dict)
+        task_list_dict[idx] = {
+            "id": task.id,
+            "name": task.name,
+            "description": task.description,
+            "date_created": task.date_created,
+            "task_cards_data" : card_data_dict,
+            "encoded_img": encoded_img,
+            "completed": completed,
+            "passed": passed
+        }
+
+    return jsonify({"resp": "ok", "msg": "Task Lists and Cards parsed", "stuff": task_list_dict})

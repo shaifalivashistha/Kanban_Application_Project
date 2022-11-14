@@ -1,36 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <!-- <base href="/" target="_blank"> -->
+    <link rel="stylesheet" src="stylesheet.css" type="text/css" media="print" />
+
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        .middle-column {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .middle-column div {
+            flex-grow: 1;
+            margin: 0 8px;
+            border: solid 1px red;
+        }
+
+        .middle-column div+div {
+            margin-top: 8px
+        }
+
+        .dropbtn {
+            background-color: #59e2b0;
+            color: white;
+            padding: 10px;
+            font-size: 10px;
+            border-radius: 25%;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 
-<body>
-    <p>Hi {{data.username}},</p>
-    <p>Thank you for using Self Tracker app. Your data logs from the past month are listed below. Keep logging!!</p>
-    <table style="width: 100%">
-        <thead>
-            <tr>
-                <th>Tracker Name</th>
-                <th>Tracker Description</th>
-                <th>Tracker Type</th>
-                <th>Last Update</th>
-            </tr>
-        </thead>
+<body style="text-align: center;">
+    <nav style="background-color: bisque;">
+        <a> Username </a> |
+        <a> Logout </a>
+    </nav>
+    <div id="dashboard"></div>
+    <h3> Hi {{ data.username }} !!! </h3>
+    <p>Thank you for using Kanban ToDo app. Your task cards for the previous month are listed below. Keep tracking your
+        deadlines!!</p>
 
-        <body>
-            {% for element in data.tracker_data %}
-            <tr>
-                <td>{{element.name}}</td>
-                <td>{{element.description}}</td>
-                <td>{{element.type}}</td>
-                <td>{{element.timestamp}}</td>
-            </tr>
+    <button
+        style="border-radius: 50%; font-size: 40px; background-color: #4681f4; margin: 2px 2px; padding: 20px; color: white;">+</button>
+
+
+    <h1>
+        <strong>||------Task Board------||</strong>
+    </h1>
+
+    <div class="card1">
+        <div style=" display: flex; flex-direction: row;">
+            <!-- <p>{{data.task_list_dict}}</p> -->
+            {% for k, task in data.task_list_dict.items() %}
+            <div style="border: solid 1px orange; flex: 0 0 29em; ">
+                <br>
+                <!-- <p>{{task['name']}}</p> -->
+                <div>
+                    <button
+                        style="padding: 6px; text-decoration: double; background-color: khaki; font-size: medium; border-color: darkgoldenrod;">{{
+                        task["name"]
+                        }}</button>
+                </div>
+                <br>
+                <br>
+                <div>
+                    <div class="middle-column">
+
+                        <div id="cards">
+                            <br>
+
+                            <br>
+                            <div
+                                style="padding: 6px; text-decoration: double; background-color: lightskyblue; font-size: medium; border-color:blue;">
+                                Task Completed: {{ task["completed"] }}/{{ task["length"] }}
+                            </div>
+                            <div
+                                style="padding: 6px; text-decoration: double; background-color: lightcoral; font-size: medium; border-color:blue;">
+                                Deadlines Passed: {{ task["passed"] }}/{{ task["length"] }}
+                            </div>
+                            <br>
+                            <div>
+                                <h4> <u><strong><img img
+                                                src="file:///home/shaifali/Desktop/Kanban_Application_Project/frontend/myapp/src/assets/{{data.username}}/{{task.name}}.png"
+                                                width="200" height="200"></strong></u></h4>
+                                <!-- <h4> <u><strong><img width="200" -->
+                                <!-- :src="'data:image/png;base64,' + task.encoded_img" /></strong></u> -->
+                                </h4>
+                            </div>
+                            <br>
+
+
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             {% endfor %}
-        </body>
-    </table>
-    <p>Regards</p>
-    <p>Self Tracker Team</p>
+        </div>
+    </div>
+
+
 </body>
 
 </html>

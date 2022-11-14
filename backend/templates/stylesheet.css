@@ -1,0 +1,20 @@
+@media print {
+    a::after {
+        content: " (" attr(href) ") ";
+    }
+
+    pre {
+        white-space: pre-wrap;
+    }
+
+    @page {
+        margin: 0.25in;
+        size: Letter;
+    }
+
+    @page :first {
+        @top-right {
+            content: "";
+        }
+    }
+}

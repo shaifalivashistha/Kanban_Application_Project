@@ -1,9 +1,13 @@
 <template>
     <div id="cards">
-        <nav>
-            <router-link :to="`/dashboard/${username}/create_card`"><button>{{ username }}</button></router-link> |
-            <router-link :to="`/dashboard/${username}`"><button>Dashboard</button></router-link> |
-            <button @click="logout()">Logout</button>
+        <nav style="text-align: left; ">
+            <button class="btn btn-lg" style=" margin-right:16px; font-size: medium;" @click="pageRefresh()"><strong>{{
+                    username
+            }}</strong></button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
+                @click="goToDashboard()"><strong>Dashboard</strong></button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
+                @click="logout()"><strong>Logout</strong></button>
         </nav>
         <br>
         <!-- <div class="container">
@@ -50,7 +54,7 @@
                     placeholder="dd-mm-yyyy" required autocomplete="off" />
                 <h5>Mark as Complete</h5>
                 <label class="switch">
-                    <input @change="changeStatus" id="" type="checkbox">
+                    <input id="status_switch" @change="changeStatus" type="checkbox" v-model="checkStatus">
                     <span class="slider round"></span>
                 </label>
 
@@ -78,8 +82,8 @@ export default {
             title: "",
             content: "",
             deadline: "",
-            status: "No",
-            checkStatus: false,
+            status: "",
+            checkStatus: "",
             error_txt: "",
             success_msg: "",
         }
@@ -94,6 +98,7 @@ export default {
         this.content = sessionStorage.getItem("cardContent")
         this.deadline = sessionStorage.getItem("cardDeadline")
         this.status = sessionStorage.getItem("cardStatus")
+        this.checkStatus = sessionStorage.getItem("checkStatus")
         const getRequestOptions = {
             methods: "GET",
             headers: {
@@ -113,6 +118,12 @@ export default {
                             if (myResp.resp == "ok") {
                                 this.success_msg = myResp.msg;
                                 this.taskDict = myResp.stuff.taskDict
+                                if (this.checkStatus) {
+                                    document.getElementById("status_switch").value = this.checkStatus
+                                }
+                                else {
+                                    document.getElementById("status_switch").value = ""
+                                }
                             }
                             else {
                                 throw Error(myResp.msg);
@@ -146,6 +157,7 @@ export default {
                 content: this.content,
                 deadline: this.deadline,
                 status: this.status,
+                checkStatus: this.checkStatus
             }
             console.log(this.cardID)
             const updateRequestOptions = {
@@ -174,6 +186,7 @@ export default {
                                     sessionStorage.removeItem("cardContent")
                                     sessionStorage.removeItem("cardDeadline")
                                     sessionStorage.removeItem("cardStatus")
+                                    sessionStorage.removeItem("checkStatus")
                                     this.$router.push({ path: `/dashboard/${this.username}` })
                                 }
                                 else {
@@ -201,31 +214,54 @@ export default {
 
         },
         async changeList() {
-            // console.log(document.getElementById("selected_list_name").selectedIndex)
             var x = document.getElementById("selected_list_name").selectedIndex;
             document.getElementsByTagName("option")[x].value = this.taskDict[x].listName;
             this.listName = document.getElementsByTagName("option")[x].value
-            console.log(this.listName)
+            // console.log(this.listName)
             sessionStorage.setItem("listName", this.listName)
             this.listID = this.taskDict[x].id
             sessionStorage.setItem("listID", this.listID)
-            console.log(this.listID)
+            // console.log(this.listID)
 
 
         },
         async changeStatus() {
-            // console.log(this.status)
-            this.checkStatus = !this.checkStatus
-            if (this.checkStatus) {
-                this.status = "Yes"
-                console.log(this.status)
-                sessionStorage.setItem("status", this.status)
+
+            var x = document.getElementById("status_switch")
+            // console.log(x.value)
+            if (x.value == "on") {
+                // console.log("THE VALUE IS IN ON IF")
+                x.value = "off"
+                this.checkStatus = ""
+                this.status = "Pending"
+                sessionStorage.setItem("checkStatus", this.checkStatus)
+                sessionStorage.setItem("cardStatus", this.status)
             }
-            else {
-                this.status = "No"
-                sessionStorage.setItem("status", this.status)
+
+            else if (x.value == "off") {
+                // console.log("THE VALUE IS IN OFF IF ELSE")
+                x.value = "on"
+                this.checkStatus = "on"
+                this.status = "Finished"
+                sessionStorage.setItem("cardStatus", this.status)
+                sessionStorage.setItem("checkStatus", this.checkStatus)
             }
-            // console.log(this.status)
+        },
+        async goToDashboard() {
+            sessionStorage.removeItem("listID");
+            sessionStorage.removeItem("listDescription");
+            sessionStorage.removeItem("listName");
+            sessionStorage.removeItem("cardID");
+            sessionStorage.removeItem("cardTitle");
+            sessionStorage.removeItem("cardContent")
+            sessionStorage.removeItem("cardDeadline")
+            sessionStorage.removeItem("cardStatus")
+            sessionStorage.removeItem("checkStatus")
+
+            this.$router.push({ path: `/dashboard/${this.username}` })
+        },
+        async pageRefresh() {
+            this.$router.push({ path: `/${this.username}/update_card` })
         },
         async logout() {
             const logoutRequestOptions = {
@@ -262,88 +298,12 @@ export default {
                     console.log("Could not log out. Error: ", error);
                 });
         },
+
     }
+
 };
 </script>
 <style scoped lang="scss">
-h3 {
-    margin: 40px 0 0;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-a {
-    color: #42b983;
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td {
-    text-align: center;
-}
-
-th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
-.dropbtn {
-    background-color: #2fc4ff;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: rgb(117, 204, 255);
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-
 .switch {
     position: relative;
     display: inline-block;

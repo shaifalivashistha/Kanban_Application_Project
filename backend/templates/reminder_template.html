@@ -7,9 +7,27 @@
 
 <body>
     <p>Hi {{data.username}},</p>
-    <p>We have noticed that you have not logged any data today ({{data.date}}).</p>
-    <p>You can use the Self Tracker app to log any data you want easily. So what are you waiting for?</p>
-    <p>Start logging now, Let's track it!!</p>
+    <p>We have noticed that you have pending deadlines for ({{data.date}}).</p>
+    <p>Your deadlines are:</p>
+    <table style="width: 100%">
+        <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+
+        <body>
+            {% for deadline in data.deadlines %}
+            <tr style="text-align:center">
+                <td>{{loop.index}}</td>
+                <td>{{deadline}}</td>
+            </tr>
+            {% endfor %}
+        </body>
+    </table>
+    <p>You can use the Kanban ToDo app to keep a track of all your deadlines and increase productivity.</p>
+    <p>Start tracking now</p>
     <p>Regards</p>
     <p>Self Tracker Team</p>
 </body>
