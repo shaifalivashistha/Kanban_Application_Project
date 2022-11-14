@@ -153,7 +153,7 @@ def remind():
 
 def async_summary_export(username):
     fname = f"Summary.csv"
-    tracker_header = ["Name", "Date Created", "Description", "Type"]
+    task_list_header = ["List Name", "Date Created", "Description"]
     usr_pth = f"/home/shaifali/Downloads/Mad2_Data/{username}"
     user = User.query.filter_by(username=username).first()
     if not os.path.exists(usr_pth):
@@ -165,7 +165,7 @@ def async_summary_export(username):
     )
     with open(f"{usr_pth}/{fname}", "w") as file:
         myWriter = csv.writer(file)
-        myWriter.writerow(tracker_header)
+        myWriter.writerow(task_list_header)
         for tid in tIDs:
             task_list = TaskList.query.filter_by(id=tid[0]).first()
             myWriter.writerow(
@@ -179,8 +179,8 @@ def async_summary_export(username):
 
 
 def async_events_export(username, listID):
-    fname = f"Logs.csv"
-    log_header = ["Log", "TimeStamp", "Value", "Note"]
+    fname = f"Cards.csv"
+    log_header = ["Title", "ListName", "content", "deadline", "status"]
     dir_pth = f"/home/shaifali/Downloads/Mad2_Data/{username}/{listID}"
     if not os.path.exists(dir_pth):
         os.makedirs(dir_pth)
@@ -197,6 +197,7 @@ def async_events_export(username, listID):
             myWriter.writerow(
                 [
                     card.title,
+                    card.listNsme,
                     card.content,
                     card.deadline,
                     card.status,

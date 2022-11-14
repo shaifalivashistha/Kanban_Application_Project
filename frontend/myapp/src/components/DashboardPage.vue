@@ -1,15 +1,19 @@
 <template>
     <div id="dashboard">
-        <nav>
-            <router-link :to="`/dashboard/${username}`"><button style="font-size: medium;">{{ username }}</button>
-            </router-link> |-|
-            <button style="font-size: medium;" @click="logout()">Logout</button>
+        <nav style="text-align: left; ">
+            <button style=" margin-right:16px; font-size: medium;" class="btn btn-lg"><strong>{{
+                    username
+            }}</strong></button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
+                @click="logout()"><strong>Logout</strong></button>
         </nav>
         <br>
         <div>
             <div>
-                <button class="btn btn-primary btn-lg" @click="ExportPageSummary()">Export Summary</button>
-                <button class="btn btn-primary btn-lg" @click="ToSummaryPage">Summary Page</button>
+                <button style="margin-right:16px" class="btn btn-primary btn-lg" @click="ExportPageSummary()">Export
+                    Summary</button>
+                <button style="margin-right:16px" class="btn btn-primary btn-lg" @click="ToSummaryPage">Summary
+                    Page</button>
 
             </div>
             <br>
@@ -56,7 +60,7 @@
                         <br>
                         <div class="dropdown">
                             <button
-                                style="padding: 6px; text-decoration: double; background-color: khaki; font-size: medium;">{{
+                                style="padding: 6px; text-decoration: double; background-color: khaki; font-size: medium; border-color: darkgoldenrod;">{{
                                         task.name
                                 }}</button>
                             <div class="dropdown-content">
@@ -343,7 +347,7 @@ export default {
             sessionStorage.setItem("listID", listID);
             sessionStorage.setItem("listName", listName)
         },
-        async ExportListSummary() {
+        async ExportPageSummary() {
             const temp_data = this.task_list_data
             const exportListSummaryRequestOptions = {
                 method: "POST",
@@ -355,7 +359,7 @@ export default {
             }
             try {
                 if (!!this.auth_token) {
-                    await fetch(`${baseURL}/${this.username}/export_trackers`, exportListSummaryRequestOptions)
+                    await fetch(`${baseURL}/${this.username}/export_summary`, exportListSummaryRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
                                 throw Error(response.statusText);
