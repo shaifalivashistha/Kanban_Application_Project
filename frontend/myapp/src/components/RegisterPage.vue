@@ -1,10 +1,15 @@
 <template>
   <div class="register">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/login_page">Login</router-link> |
-      <router-link to="/register">SignUp</router-link>
+    <nav style="text-align: left; ">
+
+      <router-link to="/"><button style=" margin-right:16px; font-size: medium;"
+          class="btn btn-lg"><strong>Home</strong></button>
+      </router-link> |
+      <router-link to="/about"><button style=" margin-right:16px; font-size: medium;"
+          class="btn btn-lg"><strong>About</strong></button>
+      </router-link> |
+      <router-link to="/login_page"><button style=" margin-right:16px; font-size: medium;"
+          class="btn btn-lg"><strong>Login</strong></button></router-link>
     </nav>
     <p id="error_txt" class="alert alert-danger" role="alert" v-if="error_txt">
       {{ error_txt }}
@@ -15,7 +20,7 @@
 
     <body class="container">
       <form @submit.prevent="submitForm">
-        <h3 class="form text-center mt-2 mb-4">Sign Up</h3>
+        <h3 class="form text-center mt-2 mb-4"><strong>Sign Up</strong></h3>
         <div class="form-group">
           <label>Username</label>
           <input id="username" type="text" v-model="username" class="form-control form-control-lg"

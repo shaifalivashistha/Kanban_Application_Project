@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <nav>
-      <h3>App Name</h3>
+      <h2><strong><u>KanBan ToDo Application</u></strong></h2>
     </nav>
     <br>
     <div>

@@ -1,17 +1,22 @@
 <template>
   <div class="login">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/register">SignUp</router-link>
+    <nav style="text-align: left; ">
+
+      <router-link to="/"><button style=" margin-right:16px; font-size: medium;"
+          class="btn btn-lg"><strong>Home</strong></button>
+      </router-link> |
+      <router-link to="/about"><button style=" margin-right:16px; font-size: medium;"
+          class="btn btn-lg"><strong>About</strong></button>
+      </router-link> |
+      <router-link to="/register"><button style=" margin-right:16px; font-size: medium;"
+          class="btn btn-lg"><strong>SignUp</strong></button></router-link>
     </nav>
 
     <body class="login_body_class">
 
       <body class="container">
         <br />
-        <h3 class="form text-center mt-2 mb-4">Log in</h3>
+        <h3 class="form text-center mt-2 mb-4"><strong>Log in</strong></h3>
         <div class="container">
           <p id="error_txt" class="alert alert-danger" role="alert" v-if="error_txt">
             {{ error_txt }}

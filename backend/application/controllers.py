@@ -117,7 +117,7 @@ def login():
 @app.route("/dashboard/<string:username>", methods=["GET"])
 @cache.memoize()
 def dashboard(username):
-    time.sleep(3)
+    time.sleep(1)
     user_data = User.query.filter_by(username=username).first()
     taskObjs = user_data.task_list
 
@@ -227,7 +227,7 @@ def cards(username):
     # cache.delete_memoized(dashboard, username)
     # parent_list = TaskList.query.filter_by(id=listID).first()
     if request.method == "GET":
-        time.sleep(3)
+        time.sleep(1)
         
         # all_cards = parent_list.cards
 
@@ -439,7 +439,7 @@ def export_cards(username, listID):
 @app.route("/<string:username>/summary_page", methods=["GET"])
 @cache.memoize()
 def summary_page(username):
-    time.sleep(3)
+    time.sleep(1)
     user_data = User.query.filter_by(username=username).first()
     taskObjs = user_data.task_list
 
@@ -464,7 +464,7 @@ def summary_page(username):
                 "deadline" : card.deadline.strftime("%Y-%m-%d"),
                 "status": card.status
             }
-            if card.status:
+            if card.status == "Finished":
                 completed += 1
             if card.deadline.date() < datetime.now().date():
                 passed += 1

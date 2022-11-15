@@ -139,7 +139,7 @@ def send():
                 "completed": completed,
                 "passed": passed
             }
-            print(task_list_dict)
+            # print(task_list_dict)
 
         send_data = {
             "username": user.username,
@@ -147,13 +147,16 @@ def send():
             "task_list_dict": task_list_dict,
         }
         msg = format_msg(send_data, "Summary")
-        html = HTML(string=msg)
-        html.write_pdf(target=f'{pdf_pth}/ExportedSummary_{str(date.today())}.pdf')
+        # html = HTML(string=msg)
+        with open(f'{pdf_pth}/ExportedSummary_{str(date.today())}.html', "w") as f:
+            f.write(msg)
+        f.close()
+        # html.write_pdf(target=f'{pdf_pth}/ExportedSummary_{str(date.today())}.pdf')
         send_mail(
             user.email,
             subject=f"Kanban ToDo: {user.username}'s monthly summary report",
             message=msg,
-            attachement=f'{pdf_pth}/ExportedSummary_{str(date.today())}.pdf',
+            attachement=f'{pdf_pth}/ExportedSummary_{str(date.today())}.html',
         )
 
 
