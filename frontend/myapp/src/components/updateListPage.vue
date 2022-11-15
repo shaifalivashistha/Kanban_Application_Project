@@ -1,9 +1,12 @@
 <template>
     <div id="task_list">
-        <nav>
-            <router-link to="#"><button>{{ username }}</button></router-link> |-|
-            <router-link :to="`/dashboard/${username}`"><button>Dashboard</button></router-link> |-|
-            <button @click="logout()">Logout</button>
+        <nav style="text-align: left; ">
+            <button style=" margin-right:16px; font-size: medium;" class="btn btn-lg"
+                @click="goToDashboard()"><strong>{{
+                        username
+                }}</strong></button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
+                @click="logout()"><strong>Logout</strong></button>
         </nav>
         <br>
         <!-- <div class="container">
@@ -59,8 +62,8 @@ export default {
     async created() {
         this.auth_token = sessionStorage.getItem("authentication-token");
         this.username = sessionStorage.getItem("username");
-        this.list_name = sessionStorage.getItem("listName");
-        this.list_des = sessionStorage.getItem("listDescription");
+        this.listName = sessionStorage.getItem("listName");
+        this.listDescription = sessionStorage.getItem("listDescription");
         this.listID = sessionStorage.getItem("listID")
         const getRequestOptions = {
             methods: "GET",
@@ -160,6 +163,9 @@ export default {
                 console.log("Could not update task list. Error: ", error);
             }
 
+        },
+        async goToDashboard() {
+            this.$router.push({ path: `/dashboard/${this.username}` })
         },
         async logout() {
             const logoutRequestOptions = {

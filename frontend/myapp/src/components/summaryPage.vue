@@ -207,7 +207,7 @@ export default {
             }
             try {
                 if (!!this.auth_token) {
-                    await fetch(`${baseURL}/${this.username}/export_trackers`, exportListSummaryRequestOptions)
+                    await fetch(`${baseURL}/${this.username}/export_summary`, exportListSummaryRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
                                 throw Error(response.statusText);
@@ -262,26 +262,6 @@ li {
 
 a {
     color: #42b983;
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td {
-    text-align: center;
-}
-
-th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
 }
 
 nav {

@@ -311,6 +311,7 @@ export default {
             sessionStorage.setItem("cardStatus", cardStatus)
             sessionStorage.setItem("checkStatus", String(checkStatus))
             console.log(checkStatus)
+            console.log(typeof checkStatus)
 
         },
         async logout() {

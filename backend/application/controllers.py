@@ -98,7 +98,7 @@ def login():
                     username,
                 )
                 return jsonify(
-                    {"resp": "ok", "msg": "Log in success", "stuff": str(username)}
+                    {"resp": "ok", "msg": "Login success", "stuff": str(username)}
                 )
             else:
                 return jsonify({"resp": "not ok", "msg": "Incorrect password"})
@@ -106,7 +106,7 @@ def login():
         return jsonify(
             {
                 "resp": "not ok",
-                "msg": f"Welcome to Log in page ({request.method} request received)",
+                "msg": f"Welcome to Login page ({request.method} request received)",
             }
         )
 
@@ -190,7 +190,7 @@ def create_list(username):
         fig = Figure()
         axis = fig.add_subplot(1, 1, 1)
         axis.set(xlabel="Time Stamp", ylabel="Value")
-        fig.savefig(f"../frontend/myapp/src/assets/{username}/{newTaskList.name}.png")
+        fig.savefig(f"../frontend/myapp/src/assets/{username}/{newTaskList.id}.png")
         return jsonify({"resp": "ok", "msg": "task list successfully created"})
     else:
         return jsonify(
@@ -380,6 +380,7 @@ def update_card(username):
     # print(data)
     # print(data["listName"])
     if myCard:
+        cardID= myCard.id
         db.session.delete(myCard)
         db.session.commit()
         parent_list = TaskList.query.filter_by(name=data["listName"]).first()
@@ -401,7 +402,7 @@ def update_card(username):
         # parent_list.cards.append(myCard)
         # db.session.commit()
 
-        return jsonify({"resp": "ok", "msg": "log updated successfully"})
+        return jsonify({"resp": "ok", "msg": "card updated successfully"})
 
 
 
@@ -473,7 +474,7 @@ def summary_page(username):
                 deadlines[card_data_dict[key]["deadline"]] = 1
 
         # img_pth =f'/home/shaifali/Downloads/Mad2_Data/{username}/{task.name}.png'
-        img_pth =f'/home/shaifali/Desktop/Kanban_Application_Project/frontend/myapp/src/assets/{username}/{task.name}.png'
+        img_pth =f'/home/shaifali/Desktop/Kanban_Application_Project/frontend/myapp/src/assets/{username}/{task.id}.png'
 
 
         # f1 = plt.figure()

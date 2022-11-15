@@ -118,11 +118,13 @@ export default {
                             if (myResp.resp == "ok") {
                                 this.success_msg = myResp.msg;
                                 this.taskDict = myResp.stuff.taskDict
-                                if (this.checkStatus) {
+                                if (this.checkStatus == "on") {
+                                    console.log("switch status on h")
                                     document.getElementById("status_switch").value = this.checkStatus
                                 }
-                                else {
-                                    document.getElementById("status_switch").value = ""
+                                else if (typeof this.checkStatus === 'string' && this.checkStatus.length === 0) {
+                                    console.log("switch status off h")
+                                    document.getElementById("status_switch").value = "off"
                                 }
                             }
                             else {
@@ -135,7 +137,7 @@ export default {
                     })
                     .catch(error => {
                         this.error_txt = error;
-                        console.log("Could not retrieve tracker data. Error: ", error);
+                        console.log("Could not retrieve Task List data. Error: ", error);
                     })
             }
             else {
@@ -145,7 +147,7 @@ export default {
         }
         catch (error) {
             this.error_txt = error;
-            console.log("Could not retrieve tracker data. Error: ", error);
+            console.log("Could not retrieve Task List data. Error: ", error);
         }
     },
     methods: {
@@ -230,7 +232,7 @@ export default {
             var x = document.getElementById("status_switch")
             // console.log(x.value)
             if (x.value == "on") {
-                // console.log("THE VALUE IS IN ON IF")
+                console.log("switch on tha ab off hai")
                 x.value = "off"
                 this.checkStatus = ""
                 this.status = "Pending"
@@ -239,7 +241,7 @@ export default {
             }
 
             else if (x.value == "off") {
-                // console.log("THE VALUE IS IN OFF IF ELSE")
+                console.log("switch off tha ab on hai")
                 x.value = "on"
                 this.checkStatus = "on"
                 this.status = "Finished"

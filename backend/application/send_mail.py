@@ -122,7 +122,7 @@ def send():
                 except:
                     deadlines[myCard.deadline.strftime("%Y-%m-%d")] = 1
 
-            img_pth =f'/home/shaifali/Desktop/Kanban_Application_Project/frontend/myapp/src/assets/{user.username}/{myCard.listName}.png'
+            img_pth =f'/home/shaifali/Desktop/Kanban_Application_Project/frontend/myapp/src/assets/{user.username}/{task_list.id}.png'
 
             plt.clf()
             plt.bar(deadlines.keys(), deadlines.values())
@@ -131,6 +131,7 @@ def send():
             plt.savefig(img_pth)
             
             task_list_dict[idx] = {
+                "id" : task_list.id,
                 "name": task_list.name,
                 "description": task_list.description,
                 "date_created": task_list.date_created,
@@ -184,7 +185,7 @@ def remind():
             msg = format_msg(send_data, "Daily")
             send_mail(
                 user.email,
-                subject=f"Kanban ToDo: Reminder for logging your data",
+                subject=f"Kanban ToDo: Reminder for Deadline of your task",
                 message=msg,
             )
 
@@ -218,7 +219,7 @@ def async_summary_export(username):
 
 def async_events_export(username, listID):
     fname = f"Cards.csv"
-    log_header = ["Title", "ListName", "Content", "Deadline", "Status"]
+    card_header = ["Title", "ListName", "Content", "Deadline", "Status"]
     dir_pth = f"/home/shaifali/Downloads/Mad2_Data/{username}/{listID}"
     if not os.path.exists(dir_pth):
         os.makedirs(dir_pth)
@@ -229,7 +230,7 @@ def async_events_export(username, listID):
     )
     with open(f"{dir_pth}/{fname}", "w") as file:
         myWriter = csv.writer(file)
-        myWriter.writerow(log_header)
+        myWriter.writerow(card_header)
         for cid in cIDs:
             card = Cards.query.filter_by(id=cid[0]).first()
             myWriter.writerow(

@@ -24,7 +24,7 @@ class Config:
 
 class LocalDevelopmentConfig(Config):
     SQLITE_DB_DIR = os.path.join(basedir, "../db_directory")
-    SQLALCHEMY_DATABASE_URI = "sqlite:///trackerdb.sqlite3"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///kanbandb.sqlite3"
 
     DEBUG = True
     SECRET_KEY = "Th1s1sas3cr3tk3y"
@@ -36,14 +36,14 @@ class LocalDevelopmentConfig(Config):
 
     SMTP_SERVER_HOST = "localhost"
     SMTP_SERVER_PORT = 1025
-    SENDER_ADDRESS = "admin@tracker.com"
+    SENDER_ADDRESS = "admin@kanbanTodo.com"
     SENDER_PASSWORD = ""
 
     CACHE_TYPE = "RedisCache"
     REDIS_URL = "redis://localhost:6379"
     CACHE_REDIS_URL = "redis://localhost:6379/0"
     CACHE_DEFAULT_TIMEOUT = 1800
-    CACHE_KEY_PREFIX = "tracker"
+    CACHE_KEY_PREFIX = "kanbanToDo"
 
     ENABLE_UTC = False
     CELERY_BROKER_URL = "redis://localhost:6379/1"

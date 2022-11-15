@@ -165,7 +165,7 @@ export default {
             }
             try {
                 if (!!this.auth_token) {
-                    console.log(temp_data)
+                    // console.log(temp_data)
                     await fetch(`${baseURL}/${this.username}/${this.listID}/bounce_card_cache`, addCardRequestOptions)
                         // await fetch(`${baseURL}/dashboard/${this.username}`, addCardRequestOptions)
                         .then(async response => {
@@ -220,7 +220,7 @@ export default {
             var x = document.getElementById("status_switch")
             console.log(x.value)
             if (x.value == "on") {
-                console.log("THE VALUE IS IN ON IF")
+                console.log("swich on tha ab off hai")
                 x.value = "off"
                 this.checkStatus = ""
                 this.status = "Pending"
@@ -229,7 +229,7 @@ export default {
             }
 
             else if (x.value == "off") {
-                console.log("THE VALUE IS IN OFF IF ELSE")
+                console.log("switch off tha ab on h")
                 x.value = "on"
                 this.checkStatus = "on"
                 this.status = "Finished"

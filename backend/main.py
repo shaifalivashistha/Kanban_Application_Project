@@ -60,12 +60,5 @@ app, api, celery = create_app()
 from application.controllers import *
 
 
-# # -------------------------API_ROUTES-------------------------#
-# api.add_resource(UserAPI, "/api/users/", "/api/users/<int:id>")
-# api.add_resource(TrackerAPI, "/api/trackers/", "/api/trackers/<int:id>/")
-# api.add_resource(LogAPI, "/api/trackers/<int:id>/")
-# api.add_resource(ExportTrackerAPI, "/<email>/tracker/export")
-# api.add_resource(ExportLogAPI, "/<email>/tracker/<int:id/logs/export")
-
 if __name__ == "__main__":
     app.run(debug=True)

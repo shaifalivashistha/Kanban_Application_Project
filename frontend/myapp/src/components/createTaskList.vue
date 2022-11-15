@@ -1,9 +1,13 @@
 <template>
     <div id="task_list">
-        <nav>
-            <router-link to="#">{{ username }}</router-link> |-|
-            <router-link :to="`/dashboard/${username}`"><button>{{ username }}</button></router-link> |-|
-            <button @click="logout()">Logout</button>
+        <nav style="text-align: left; ">
+            <button style=" margin-right:16px; font-size: medium;" class="btn btn-lg"><strong>{{
+                    username
+            }}</strong></button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
+                @click="goToDashboard()"><strong>Dashboard</strong></button>
+            <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
+                @click="logout()"><strong>Logout</strong></button>
         </nav>
         <br>
         <div class="container">
@@ -58,7 +62,7 @@ export default {
     async created() {
         this.auth_token = sessionStorage.getItem("authentication-token");
         this.username = sessionStorage.getItem("username");
-        console.log("create task list page")
+
     },
     methods: {
         async addListSubmit() {
@@ -76,7 +80,7 @@ export default {
             }
             try {
                 if (!!this.auth_token) {
-                    console.log("authentication verified")
+
                     await fetch(`${baseURL}/dashboard/${this.username}/create_list`, addListRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
@@ -111,6 +115,18 @@ export default {
                 this.error_txt = error;
                 console.log("List Request failed", err)
             }
+        },
+        async goToDashboard() {
+            sessionStorage.removeItem("listID");
+            sessionStorage.removeItem("listDescription");
+            sessionStorage.removeItem("listName");
+            sessionStorage.removeItem("cardID");
+            sessionStorage.removeItem("cardTitle");
+            sessionStorage.removeItem("cardContent")
+            sessionStorage.removeItem("cardDeadline")
+            sessionStorage.removeItem("cardStatus")
+            sessionStorage.removeItem("checkStatus")
+            this.$router.push({ path: `/dashboard/${this.username}` })
         },
         async logout() {
             const logoutRequestOptions = {
