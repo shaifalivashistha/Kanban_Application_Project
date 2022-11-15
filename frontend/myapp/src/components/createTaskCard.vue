@@ -2,7 +2,7 @@
     <div id="cards">
         <nav style="text-align: left; ">
             <button style=" margin-right:16px; font-size: medium;" class="btn btn-lg"><strong>{{
-                    username
+            username
             }}</strong></button>
             <button class="btn btn-lg" style="font-size: medium; margin-right:16px"
                 @click="goToDashboard()"><strong>Dashboard</strong></button>
@@ -23,15 +23,6 @@
             <form @submit.prevent="addCardEntry()">
 
                 <h3 class="form text-center mt-2 mb-4">!!---Add Tasks to your Task list here---!!</h3>
-                <!-- <div class="dropdown">
-                    <button class="dropbtn">Select List</button>
-                    <div class="dropdown-content">
-                        <a v-for="name in taskList"><button class="btn btn-success btn-lg" @click="changeList(name)">
-                                {{ name }}
-                            </button>
-                        </a>
-                    </div>
-                </div> -->
                 <h5><label for="listName">Select List</label></h5>
 
                 <select
@@ -43,9 +34,6 @@
                 <h5>Title</h5>
                 <input id="title" type="text" v-model="title" ref="title" class="form-control form-control-lg"
                     placeholder="Task title" required autocomplete="off" />
-
-                <!-- <input id="title" type="text" class="form-control form-control-lg" placeholder="Task title" required
-                    autocomplete="off" /> -->
                 <h5>Content</h5>
                 <input id="content" v-model="content" type="text" class="form-control form-control-lg"
                     placeholder="Task content" required autocomplete="off" />
@@ -93,9 +81,6 @@ export default {
         this.username = sessionStorage.getItem("username");
         this.listID = sessionStorage.getItem("listID");
         this.listName = sessionStorage.getItem("listName")
-
-        // document.getElementsByTagName("option").value = 
-        // document.getElementById("selected_list_name").selectedIndex =;
         const getRequestOptions = {
             methods: "GET",
             headers: {
@@ -105,7 +90,6 @@ export default {
         }
         try {
             if (!!this.auth_token) {
-                // console.log(this.listID)
                 await fetch(`${baseURL}/${this.username}/create_card`, getRequestOptions)
                     .then(async response => {
                         if (!response.ok) {
@@ -117,9 +101,6 @@ export default {
                                 this.success_msg = myResp.msg;
                                 this.taskDict = myResp.stuff.taskDict
                                 document.getElementById("status_switch").value = "off"
-                                console.log(document.getElementById("status_switch").value)
-
-                                // console.log(myResp.stuff.taskDict)
                             }
                             else {
                                 throw Error(myResp.msg);
@@ -165,9 +146,7 @@ export default {
             }
             try {
                 if (!!this.auth_token) {
-                    // console.log(temp_data)
                     await fetch(`${baseURL}/${this.username}/${this.listID}/bounce_card_cache`, addCardRequestOptions)
-                        // await fetch(`${baseURL}/dashboard/${this.username}`, addCardRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
                                 throw Error(response.statusText);
@@ -178,6 +157,7 @@ export default {
                                     this.success_msg = myResp.msg;
                                     sessionStorage.removeItem("listID")
                                     sessionStorage.removeItem("listName")
+                                    this.$router.push({ path: `/dashboard/${this.username}` });
                                 }
                                 else {
                                     throw Error(myResp.msg);
@@ -207,20 +187,14 @@ export default {
             var x = document.getElementById("selected_list_name").selectedIndex;
             document.getElementsByTagName("option")[x].value = this.taskDict[x].listName;
             this.listName = document.getElementsByTagName("option")[x].value
-            console.log(this.listName)
             sessionStorage.setItem("listName", this.listName)
             this.listID = this.taskDict[x].id
             sessionStorage.setItem("listID", this.listID)
-            console.log(this.listID)
-
-
         },
         async changeStatus() {
 
             var x = document.getElementById("status_switch")
-            console.log(x.value)
             if (x.value == "on") {
-                console.log("swich on tha ab off hai")
                 x.value = "off"
                 this.checkStatus = ""
                 this.status = "Pending"
@@ -229,7 +203,6 @@ export default {
             }
 
             else if (x.value == "off") {
-                console.log("switch off tha ab on h")
                 x.value = "on"
                 this.checkStatus = "on"
                 this.status = "Finished"

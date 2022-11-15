@@ -211,7 +211,6 @@ export default {
             };
             try {
                 if (!!this.auth_token) {
-                    console.log("delete request in progress")
                     await fetch(`${baseURL}/${this.username}/${listID}/delete`, deleteRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
@@ -260,7 +259,6 @@ export default {
             };
             try {
                 if (!!this.auth_token) {
-                    console.log("delete request in progress")
                     await fetch(`${baseURL}/${this.username}/${listID}/${cardID}/delete`, deleteRequestOptions)
                         .then(async response => {
                             if (!response.ok) {
@@ -310,9 +308,6 @@ export default {
             sessionStorage.setItem("cardDeadline", cardDeadline)
             sessionStorage.setItem("cardStatus", cardStatus)
             sessionStorage.setItem("checkStatus", String(checkStatus))
-            console.log(checkStatus)
-            console.log(typeof checkStatus)
-
         },
         async logout() {
             const logoutRequestOptions = {
@@ -412,8 +407,6 @@ export default {
                 body: JSON.stringify(temp_data)
             }
             try {
-                // console.log("trying to fetch")
-                // console.log(post_req_opt.body)
                 if (!!this.auth_token) {
                     await fetch(`${baseURL}/${this.username}/${listID}/export_card`, exportEventsRequestOptions)
                         .then(async response => {

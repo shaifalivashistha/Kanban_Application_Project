@@ -10,28 +10,11 @@
                 @click="logout()"><strong>Logout</strong></button>
         </nav>
         <br>
-        <!-- <div class="container">
-            <p id="error_txt" class="alert alert-danger" role="alert" v-if="error_txt">
-                {{ error_txt }}
-            </p>
-            <p id="success_msg" class="alert alert-success" role="alert" v-if="success_msg">
-                {{ success_msg }}
-            </p>
-        </div> -->
 
         <body>
             <form @submit.prevent="updateCardMethod()">
 
                 <h3 class="form text-center mt-2 mb-4">!!---Add Tasks to your Task list here---!!</h3>
-                <!-- <div class="dropdown">
-                    <button class="dropbtn">Select List</button>
-                    <div class="dropdown-content">
-                        <a v-for="name in taskList"><button class="btn btn-success btn-lg" @click="changeList(name)">
-                                {{ name }}
-                            </button>
-                        </a>
-                    </div>
-                </div> -->
                 <h5><label for="listName">Select List</label></h5>
 
                 <select
@@ -43,9 +26,6 @@
                 <h5>Title</h5>
                 <input id="title" type="text" v-model="title" ref="title" class="form-control form-control-lg"
                     placeholder="Task title" required autocomplete="off" />
-
-                <!-- <input id="title" type="text" class="form-control form-control-lg" placeholder="Task title" required
-                    autocomplete="off" /> -->
                 <h5>Content</h5>
                 <input id="content" v-model="content" type="text" class="form-control form-control-lg"
                     placeholder="Task content" required autocomplete="off" />
@@ -119,11 +99,9 @@ export default {
                                 this.success_msg = myResp.msg;
                                 this.taskDict = myResp.stuff.taskDict
                                 if (this.checkStatus == "on") {
-                                    console.log("switch status on h")
                                     document.getElementById("status_switch").value = this.checkStatus
                                 }
                                 else if (typeof this.checkStatus === 'string' && this.checkStatus.length === 0) {
-                                    console.log("switch status off h")
                                     document.getElementById("status_switch").value = "off"
                                 }
                             }
@@ -161,7 +139,6 @@ export default {
                 status: this.status,
                 checkStatus: this.checkStatus
             }
-            console.log(this.cardID)
             const updateRequestOptions = {
                 method: "POST",
                 headers: {
@@ -219,20 +196,15 @@ export default {
             var x = document.getElementById("selected_list_name").selectedIndex;
             document.getElementsByTagName("option")[x].value = this.taskDict[x].listName;
             this.listName = document.getElementsByTagName("option")[x].value
-            // console.log(this.listName)
             sessionStorage.setItem("listName", this.listName)
             this.listID = this.taskDict[x].id
             sessionStorage.setItem("listID", this.listID)
-            // console.log(this.listID)
-
 
         },
         async changeStatus() {
 
             var x = document.getElementById("status_switch")
-            // console.log(x.value)
             if (x.value == "on") {
-                console.log("switch on tha ab off hai")
                 x.value = "off"
                 this.checkStatus = ""
                 this.status = "Pending"
@@ -241,7 +213,6 @@ export default {
             }
 
             else if (x.value == "off") {
-                console.log("switch off tha ab on hai")
                 x.value = "on"
                 this.checkStatus = "on"
                 this.status = "Finished"

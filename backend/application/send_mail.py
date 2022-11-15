@@ -6,7 +6,8 @@ from time import time
 from datetime import date
 
 import matplotlib
-matplotlib.use('Agg')
+
+matplotlib.use("Agg")
 from matplotlib import pyplot as plt
 
 from jinja2 import Template
@@ -19,34 +20,6 @@ from weasyprint import HTML
 from flask import current_app as app, request
 
 from .models import *
-
-
-def export():
-    fname = f"ExportedSummary_{str(date.today())}.csv"
-    user_list = User.query.all()
-    # list_header = ["Name", "Date Created", "Description"]
-    # for user in user_list:
-    #     usr_pth = f"/home/shaifali/Downloads/Mad2_Data/{user.username}"
-    #     if not os.path.exists(usr_pth):
-    #         os.makedirs(usr_pth)
-    #     tIDs = (
-    #         UserTaskList.query.with_entities(UserTaskList.tID)
-    #         .filter(UserTaskList.uID == user.id)
-    #         .all()
-    #     )
-    #     with open(f"{usr_pth}/{fname}", "w") as file:
-    #         myWriter = csv.writer(file)
-    #         myWriter.writerow(list_header)
-    #         for tid in tIDs:
-    #             task_lists = TaskList.query.filter_by(id=tid[0]).first()
-    #             myWriter.writerow(
-    #                 [
-    #                     task_lists.name,
-    #                     task_lists.date_created,
-    #                     task_lists.description,
-    #                 ]
-    #             )
-    #     file.close()
 
 
 def format_msg(data, mType="Daily"):
@@ -113,7 +86,7 @@ def send():
             )
             for cid in cIDs:
                 myCard = Cards.query.filter_by(id=cid[0]).first()
-                if myCard.status:
+                if myCard.status == "Finished":
                     completed += 1
                 if myCard.deadline.date() < datetime.now().date():
                     passed += 1
@@ -122,24 +95,23 @@ def send():
                 except:
                     deadlines[myCard.deadline.strftime("%Y-%m-%d")] = 1
 
-            img_pth =f'/home/shaifali/Desktop/Kanban_Application_Project/frontend/myapp/src/assets/{user.username}/{task_list.id}.png'
+            img_pth = f"/home/shaifali/Desktop/Kanban_Application_Project/frontend/myapp/src/assets/{user.username}/{task_list.id}.png"
 
             plt.clf()
             plt.bar(deadlines.keys(), deadlines.values())
-            plt.xlabel('Date')
-            plt.ylabel('Number of Tasks')
+            plt.xlabel("Date")
+            plt.ylabel("Number of Tasks")
             plt.savefig(img_pth)
-            
+
             task_list_dict[idx] = {
-                "id" : task_list.id,
+                "id": task_list.id,
                 "name": task_list.name,
                 "description": task_list.description,
                 "date_created": task_list.date_created,
                 "length": len(cIDs),
                 "completed": completed,
-                "passed": passed
+                "passed": passed,
             }
-            # print(task_list_dict)
 
         send_data = {
             "username": user.username,
@@ -147,16 +119,14 @@ def send():
             "task_list_dict": task_list_dict,
         }
         msg = format_msg(send_data, "Summary")
-        # html = HTML(string=msg)
-        with open(f'{pdf_pth}/ExportedSummary_{str(date.today())}.html', "w") as f:
+        with open(f"{pdf_pth}/ExportedSummary_{str(date.today())}.html", "w") as f:
             f.write(msg)
         f.close()
-        # html.write_pdf(target=f'{pdf_pth}/ExportedSummary_{str(date.today())}.pdf')
         send_mail(
             user.email,
             subject=f"Kanban ToDo: {user.username}'s monthly summary report",
             message=msg,
-            attachement=f'{pdf_pth}/ExportedSummary_{str(date.today())}.html',
+            attachement=f"{pdf_pth}/ExportedSummary_{str(date.today())}.html",
         )
 
 
@@ -184,7 +154,11 @@ def remind():
                     flag = True
                     deadlines.append(myCard.title)
         if flag:
-            send_data = {"username": user.username, "deadlines": deadlines, "date": str(date.today())}
+            send_data = {
+                "username": user.username,
+                "deadlines": deadlines,
+                "date": str(date.today()),
+            }
             msg = format_msg(send_data, "Daily")
             send_mail(
                 user.email,

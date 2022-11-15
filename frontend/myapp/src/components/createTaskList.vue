@@ -25,15 +25,11 @@
                 <h3 class="form text-center mt-2 mb-4">Create Your List here</h3>
                 <div class="form-group">
                     <h5>List Name:</h5>
-                    <!-- <input id="list_name" type="text" class="form-control form-control-lg" placeholder="List Name"
-                        required autocomplete="off" /> -->
                     <input id="list_name" type="text" v-model="list_name" ref="list_name"
                         class="form-control form-control-lg" placeholder="List Name" required autocomplete="off" />
                 </div>
                 <div class="form-group">
                     <h5>Description:</h5>
-                    <!-- <input id="list_des" type="text" class="form-control form-control-lg" placeholder="Description"
-                        required autocomplete="off" /> -->
                     <input id="list_des" type="text" v-model="list_des" ref="list_des"
                         class="form-control form-control-lg" placeholder="Description" required autocomplete="off" />
                 </div>

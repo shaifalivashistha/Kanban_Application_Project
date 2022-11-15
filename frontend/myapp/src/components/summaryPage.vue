@@ -120,10 +120,6 @@ export default {
                         if (!!myResp) {
                             this.success_msg = myResp.msg;
                             this.task_list_data = myResp.stuff;
-                            // this.file = this.task_list_data..encoded_img;
-                            console.log(this.task_list_data)
-                            // console.log(this.file)
-
                         }
                         else {
                             throw Error("something went wrong (data not received)");
@@ -156,7 +152,6 @@ export default {
             sessionStorage.removeItem("cardContent")
             sessionStorage.removeItem("cardDeadline")
             sessionStorage.removeItem("cardStatus")
-            console.log("here")
             this.$router.push({ path: `/dashboard/${this.username}` })
 
         },

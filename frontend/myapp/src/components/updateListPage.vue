@@ -9,14 +9,7 @@
                 @click="logout()"><strong>Logout</strong></button>
         </nav>
         <br>
-        <!-- <div class="container">
-            <p id="error_txt" class="alert alert-danger" role="alert" v-if="error_txt">
-                {{ error_txt }}
-            </p>
-            <p id="success_msg" class="alert alert-success" role="alert" v-if="success_msg">
-                {{ success_msg }}
-            </p>
-        </div> -->
+
         <br>
 
         <body class="container">
@@ -24,15 +17,11 @@
                 <h3 class="form text-center mt-2 mb-4">Create Your List here</h3>
                 <div class="form-group">
                     <h5>List Name:</h5>
-                    <!-- <input id="list_name" type="text" class="form-control form-control-lg" placeholder="List Name"
-                        required autocomplete="off" /> -->
                     <input id="listName" type="text" v-model="listName" ref="listName"
                         class="form-control form-control-lg" placeholder="List Name" required autocomplete="off" />
                 </div>
                 <div class="form-group">
                     <h5>Description:</h5>
-                    <!-- <input id="list_des" type="text" class="form-control form-control-lg" placeholder="Description"
-                        required autocomplete="off" /> -->
                     <input id="listDescription" type="text" v-model="listDescription" ref="listDescription"
                         class="form-control form-control-lg" placeholder="Description" required autocomplete="off" />
                 </div>

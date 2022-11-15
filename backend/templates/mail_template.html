@@ -2,9 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- <base href="/" target="_blank"> -->
-    <link rel="stylesheet" src="stylesheet.css" type="text/css" media="print" />
-
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <style>
@@ -73,9 +70,6 @@
     <p>Thank you for using Kanban ToDo app. Your task cards for the previous month are listed below. Keep tracking your
         deadlines!!</p>
 
-    <button
-        style="border-radius: 50%; font-size: 40px; background-color: #4681f4; margin: 2px 2px; padding: 20px; color: white;">+</button>
-
 
     <h1>
         <strong>||------Task Board------||</strong>
@@ -83,11 +77,9 @@
 
     <div class="card1">
         <div style=" display: flex; flex-direction: row;">
-            <!-- <p>{{data.task_list_dict}}</p> -->
             {% for k, task in data.task_list_dict.items() %}
             <div style="border: solid 1px orange; flex: 0 0 29em; ">
                 <br>
-                <!-- <p>{{task['name']}}</p> -->
                 <div>
                     <button
                         style="padding: 6px; text-decoration: double; background-color: khaki; font-size: medium; border-color: darkgoldenrod;">{{
@@ -116,8 +108,6 @@
                                 <h4> <u><strong><img img
                                                 src="file:///home/shaifali/Desktop/Kanban_Application_Project/frontend/myapp/src/assets/{{data.username}}/{{task.id}}.png"
                                                 width="200" height="200"></strong></u></h4>
-                                <!-- <h4> <u><strong><img width="200" -->
-                                <!-- :src="'data:image/png;base64,' + task.encoded_img" /></strong></u> -->
                                 </h4>
                             </div>
                             <br>
